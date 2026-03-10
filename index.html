@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ODC Consultora</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="container nav">
+
+<div class="logo">ODC Consultora</div>
+
+<nav>
+
+<a href="#">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#contacto">Contacto</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<h1>CONSULTORA OLGUÍN DEL CASTILLO</h1>
+
+<p>Soluciones estratégicas para empresas, inversiones y proyectos.</p>
+
+<div class="hero-buttons">
+
+<a class="btn btn-gold" href="#contacto">Contactarnos</a>
+<a class="btn btn-outline" href="#servicios">Ver Servicios</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="about" id="nosotros">
+
+<div class="container about-grid">
+
+<div>
+
+<h2>Quiénes Somos</h2>
+
+<p>
+Somos una consultora multidisciplinaria con sede en San Juan, nacida con el propósito de ofrecer un respaldo integral a las empresas y emprendedores de la región, en Consultora Olguin Del Castillo combinamos experiencia técnica en sectores clave como la minería y la construcción con una visión experta en el área contable y financiera.
+
+
+</p>
+
+<p>
+Entendemos que el éxito de un proyecto de inversión no depende de un solo factor, sino de una gestión coordinada. Por eso, nuestro equipo de profesionales trabaja de manera transversal para brindar soluciones que van desde el asesoramiento legal y contable hasta la dirección de proyectos complejos. Nos apasiona ver crecer a las empresas locales y ser el motor que facilita su expansión en un mercado exigente.
+</p>
+
+</div>
+
+<img src="assets/equipo-consultora.jpg">
+
+</div>
+
+</section>
+
+<section class="services" id="servicios">
+
+<h2>Nuestros Servicios</h2>
+
+<div class="services-grid">
+
+<div class="service-card" onclick="openModal('mineria')">
+
+<img src="assets/mineria-servicio.jpg" alt="Minería y Construcción">
+
+<h3>Industria y Proyectos</h3>
+
+<p>Consultoría para Minería, Construcción y Proyectos de Inversión.</p>
+
+</div>
+
+<div class="service-card" onclick="openModal('finanzas')">
+
+<img src="assets/finanzas-servicio.jpg" alt="Inversiones y Finanzas">
+
+<h3>Finanzas y Estrategia</h3>
+
+<p>Análisis financiero, evaluación de riesgos y búsqueda de financiamiento.</p>
+
+</div>
+
+<div class="service-card" onclick="openModal('contable')">
+
+<img src="assets/legal-servicio.jpg" alt="Contable y Legal">
+
+<h3>Corporativo y Contable</h3>
+
+<p>Asesoramiento impositivo, auditorías, legal y gestión de empresas.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="vision-mision">
+
+<h2 class="titulo-cultura">Visión y Misión</h2>
+
+<div class="grid">
+
+<div class="card-cultura vision">
+
+<div class="icono-box">
+<i class="fa-solid fa-lightbulb"></i>
+</div>
+
+<div class="text">
+
+<h3>Nuestra Visión</h3>
+
+<p>
+Consolidarnos para el año 2030 como la consultora líder y referente en la región de Cuyo,
+reconocida por nuestra capacidad de integrar múltiples disciplinas profesionales para
+potenciar el desarrollo económico local. Aspiramos a ser el socio estratégico indispensable
+para el sector minero e industrial, destacándonos por nuestra ética profesional y por
+adelantarnos a los desafíos de un mercado global en constante evolución.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card-cultura mision">
+
+<div class="icono-box">
+<i class="fa-solid fa-rocket"></i>
+</div>
+
+<div class="text">
+
+<h3>Nuestra Misión</h3>
+
+<p>
+Brindar soluciones integrales y estratégicas en las áreas contable, financiera,
+legal y técnica, impulsando el crecimiento sostenible de empresas y proyectos
+en la provincia de San Juan. En Consultora Olguin Del Castillo.Co, transformamos
+la complejidad de los sectores minero, constructivo e inversor en oportunidades
+claras, mediante un asesoramiento profesional de excelencia basado en la confianza,
+la innovación y el compromiso con los resultados de nuestros clientes.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="values">
+
+<h2>Nuestros Valores</h2>
+
+<div class="values-container">
+
+<div class="value-item">
+
+<div class="value-icon">
+<i class="fa-solid fa-award"></i>
+</div>
+
+<h4>Excelencia</h4>
+
+<p>Calidad técnica y actualización constante en normativas contables, financieras y mineras.</p>
+
+</div>
+
+
+<div class="value-item">
+
+<div class="value-icon">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+
+<h4>Integridad y Transparencia</h4>
+
+<p>Construimos relaciones de confianza a largo plazo a través de una comunicación clara y honesta.</p>
+
+</div>
+
+
+<div class="value-item">
+
+<div class="value-icon">
+<i class="fa-solid fa-lightbulb"></i>
+</div>
+
+<h4>Visión Estrategica</h4>
+
+<p>Anticipamos desafíos futuros para asegurar la rentabilidad y sostenibilidad de cada proyecto.</p>
+
+</div>
+
+
+<div class="value-item">
+
+<div class="value-icon">
+<i class="fa-solid fa-handshake"></i>
+</div>
+
+<h4>Compromiso</h4>
+
+<p>Estamos dedicados al desarrollo productivo de nuestra provincia.</p>
+
+</div>
+
+
+<div class="value-item">
+
+<div class="value-icon">
+<i class="fa-solid fa-chess"></i>
+</div>
+
+<h4>Innovacion en soluciones</h4>
+
+<p>Aplicamos herramientas modernas de gestión y análisis para simplificar procesos complejos y maximizar resultados.</p>
+
+</div>
+
+</div>
+
+</section>
+<section class="galeria-minera">
+
+<h2>Proyectos Mineros</h2>
+
+<div class="carousel">
+
+<button class="carousel-btn prev">&#10094;</button>
+
+<div class="carousel-wrapper">
+<div class="carousel-track" id="track">
+
+<img src="assets/mina1.jpg" class="card">
+<img src="assets/mina2.jpg" class="card">
+<img src="assets/mina3.jpg" class="card">
+<img src="assets/mina4.jpg" class="card">
+<img src="assets/mina5.jpg" class="card">
+
+</div>
+</div>
+
+<button class="carousel-btn next">&#10095;</button>
+
+</div>
+
+</section>
+<section class="contact" id="contacto">
+
+<div class="container contact-grid">
+
+<div>
+
+<h2>Contacto</h2>
+
+<p>San Juan, Argentina</p>
+
+<p>Escribinos para asesorarte en tu próximo proyecto.</p>
+
+</div>
+
+<form>
+
+<input type="text" placeholder="Nombre">
+<input type="email" placeholder="Email">
+<textarea placeholder="Mensaje"></textarea>
+
+<button>Enviar mensaje</button>
+
+</form>
+
+</div>
+
+</section>
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-col">
+<h3>ODC Consultora</h3>
+<p>Consultora multidisciplinaria especializada en asesoramiento contable, financiero y técnico para empresas y proyectos de inversión.</p>
+</div>
+
+<div class="footer-col">
+<h4>Servicios</h4>
+<ul>
+<li>Minería y Construcción</li>
+<li>Inversiones y Finanzas</li>
+<li>Asesoramiento Contable</li>
+</ul>
+</div>
+
+<div class="footer-col">
+<h4>Ubicación</h4>
+<p>San Juan, Argentina</p>
+<p>Consultoría para empresas y proyectos.</p>
+</div>
+
+<div class="footer-col">
+<h4>Contacto</h4>
+<p>WhatsApp</p>
+<p>Email</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<p>© 2026 ODC Consultora - Todos los derechos reservados</p>
+<p>Desarrollado por Ornella Mut</p>
+</div>
+
+</footer>
+
+
+<script src="script.js"></script>
+<div id="modal" class="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeModal()">&times;</span>
+
+<h2 id="modal-title"></h2>
+
+<p id="modal-text"></p>
+
+</div>
+
+</div>
+<a href="https://wa.me/5492640000000" class="whatsapp-btn" target="_blank">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+duration:1000,
+once:true
+});
+</script>
+</body>
+
+</html>

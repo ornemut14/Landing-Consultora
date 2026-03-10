@@ -1,0 +1,593 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+color:#1e2a38;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+padding:18px 0;
+transition:all 0.3s;
+z-index:1000;
+}
+
+.navbar.scrolled{
+background:white;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.navbar.scrolled a{
+color:#1c2b4a;
+}
+
+.navbar.scrolled .logo{
+color:#1c2b4a;
+}
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+color:white;
+}
+
+nav a{
+margin-left:25px;
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+.hero{
+height:90vh;
+background-image:url("assets/hero-mineria.jpg");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+color:white;
+text-align:center;
+}
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(10,20,40,0.65);
+top:0;
+left:0;
+}
+
+.hero-content{
+position:relative;
+max-width:800px;
+z-index:2;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+letter-spacing:1px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:30px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+}
+.btn{
+display:inline-block;
+padding:14px 34px;
+border-radius:50px;
+font-weight:600;
+text-decoration:none;
+cursor:pointer;
+font-size:15px;
+transition:all 0.3s ease;
+margin:10px;
+}
+
+
+/* BOTON CONTACTANOS (DORADO) */
+
+.btn-gold{
+background:linear-gradient(135deg,#d4af37,#caa85c,#e6c76b);
+color:#1c2b4a;
+border:none;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.btn-gold:hover{
+transform:translateY(-3px);
+box-shadow:0 12px 28px rgba(0,0,0,0.3);
+background:linear-gradient(135deg,#e6c76b,#d4af37,#b9963a);
+}
+
+
+/* BOTON VER SERVICIOS (TRANSPARENTE) */
+
+.btn-outline{
+background:transparent;
+border:2px solid white;
+color:white;
+}
+
+.btn-outline:hover{
+background:white;
+color:#1c2b4a;
+}
+.about{
+padding:100px 0;
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:10px;
+}
+
+.services{
+padding:90px 20px;
+background:#0f172a;
+text-align:center;
+color:white;
+}
+
+.services h2{
+font-size:34px;
+margin-bottom:60px;
+letter-spacing:1px;
+}
+.services h2::after{
+content:"";
+width:120px;
+height:3px;
+background:#caa85c;
+display:block;
+margin:15px auto 0 auto;
+}
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+max-width:1200px;
+margin:auto;
+}
+
+.service-card{
+background:white;
+color:#333;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+cursor:pointer;
+transition:all 0.35s ease;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(0,0,0,0.25);
+}
+
+.service-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.service-card h3{
+font-size:20px;
+margin:20px 0 10px 0;
+color:#bfa14a;
+}
+
+.service-card p{
+padding:0 20px 25px 20px;
+font-size:15px;
+line-height:1.6;
+color:#555;
+}
+.vision-mision{
+padding:100px 20px;
+background:#f5f7fb;
+text-align:center;
+}
+
+.titulo-cultura{
+font-size:36px;
+color:#1c2b4a;
+margin-bottom:60px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:40px;
+max-width:1100px;
+margin:auto;
+}
+
+.card-cultura{
+background:white;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card-cultura:hover{
+transform:translateY(-8px);
+box-shadow:0 25px 50px rgba(0,0,0,0.15);
+}
+
+.icono-box{
+height:120px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
+color:#1e3558;
+}
+
+/* colores */
+
+.vision .icono-box{
+background:#d8d3f0;
+}
+
+.mision .icono-box{
+background:#bfe4e3;
+}
+
+.text{
+padding:35px;
+}
+
+.text h3{
+font-size:24px;
+margin-bottom:15px;
+color:#1e3558;
+}
+
+.text p{
+font-size:15px;
+color:#555;
+line-height:1.6;
+}
+
+/* responsive */
+
+@media(max-width:900px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}
+
+/* VALORES */
+
+
+.values{
+padding:90px 20px;
+background:#f5f7fb;
+text-align:center;
+}
+
+.values h2{
+font-size:34px;
+color:#1c2b4a;
+margin-bottom:60px;
+position:relative;
+}
+
+.values h2::after{
+content:"";
+width:120px;
+height:3px;
+background:#caa85c;
+display:block;
+margin:15px auto 0 auto;
+}
+
+.values-container{
+display:grid;
+grid-template-columns:repeat(5, 1fr);
+gap:25px;
+max-width:1100px;
+margin:auto;
+}
+
+.value-item{
+background:white;
+padding:20px 15px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:all 0.35s ease;
+}
+
+.value-item:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 45px rgba(0,0,0,0.15);
+}
+
+.value-icon{
+width:70px;
+height:70px;
+background:#1e3558;
+color:#d4af37;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:26px;
+margin:auto;
+margin-bottom:18px;
+}
+
+.value-item h4{
+font-size:18px;
+margin-bottom:10px;
+color:#1e3558;
+}
+
+.value-item p{
+font-size:14px;
+color:#666;
+line-height:1.5;
+}
+.contact{
+background:#0f2745;
+color:white;
+padding:100px 0;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input, textarea{
+padding:12px;
+border-radius:6px;
+border:none;
+}
+
+button{
+background:#d4a24c;
+padding:14px;
+border:none;
+color:white;
+border-radius:6px;
+}
+
+.whatsapp-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+width:60px;
+height:60px;
+background:#25D366;
+color:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+z-index:999;
+transition:0.3s;
+
+text-decoration:none; /* quita la línea */
+line-height:0; /* elimina espacio del icono */
+}
+
+.whatsapp-btn i{
+line-height:1;
+}
+
+.whatsapp-btn:hover{
+transform:scale(1.1);
+}
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.75);
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.modal-content{
+background:white;
+padding:40px;
+border-radius:10px;
+max-width:650px;
+width:90%;
+box-shadow:0 20px 60px rgba(0,0,0,0.4);
+animation:modalFade 0.3s ease;
+}
+
+.modal-content h2{
+margin-bottom:15px;
+color:#bfa14a;
+}
+
+.modal-content p{
+line-height:1.7;
+color:#444;
+}
+
+.close{
+font-size:28px;
+font-weight:bold;
+float:right;
+cursor:pointer;
+}
+
+@keyframes modalFade{
+from{
+transform:translateY(-40px);
+opacity:0;
+}
+to{
+transform:translateY(0);
+opacity:1;
+}
+}
+
+.close{
+font-size:28px;
+cursor:pointer;
+float:right;
+}
+.footer{
+background:#0c1a30;
+color:white;
+padding:60px 20px 20px 20px;
+}
+
+.footer-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+max-width:1200px;
+margin:auto;
+}
+
+.footer-col h3,
+.footer-col h4{
+color:#d4af37;
+margin-bottom:15px;
+}
+
+.footer-col p,
+.footer-col li{
+font-size:14px;
+color:#ccc;
+margin-bottom:8px;
+}
+
+.footer-col ul{
+list-style:none;
+padding:0;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:40px;
+border-top:1px solid rgba(255,255,255,0.1);
+padding-top:20px;
+font-size:13px;
+color:#aaa;
+}
+
+.galeria-minera{
+padding:100px 20px;
+background:#f5f7fb;
+text-align:center;
+}
+
+.carousel{
+display:flex;
+align-items:center;
+justify-content:center;
+max-width:1200px;
+margin:auto;
+}
+.carousel-wrapper{
+overflow:hidden;
+height: 400px;
+}
+
+.carousel-track{
+display:flex;
+gap:25px;
+transition:transform 0.5s ease;
+}
+
+.carousel-track{
+display:flex;
+gap:25px;
+transition:transform 0.5s ease;
+}
+
+.card{
+width:180px;
+height:300px;
+object-fit:cover;
+border-radius:20px;
+opacity:0.5;
+transform:scale(0.85);
+transition:all 0.4s;
+}
+
+.card.active{
+width:260px;
+height:380px;
+opacity:1;
+transform:scale(1);
+box-shadow:0 20px 40px rgba(0,0,0,0.25);
+}
+
+.carousel{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:20px;
+}
+
+.carousel-btn{
+padding:12px 24px;
+border:none;
+border-radius:30px;
+background:#1e3558;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.carousel-btn:hover{
+background:#caa85c;
+}
