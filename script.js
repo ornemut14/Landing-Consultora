@@ -26,11 +26,6 @@ function closeModal(){
 document.getElementById("modal").style.display="none";
 }
 
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function(){
 
 /* NAVBAR SCROLL */
@@ -47,71 +42,127 @@ navbar.classList.remove("scrolled");
 
 });
 
-
-
-/* CARRUSEL */
-
 const track = document.getElementById("track");
-const cards = document.querySelectorAll(".card");
 const next = document.querySelector(".next");
 const prev = document.querySelector(".prev");
 
-let index = 2;
+let cards = document.querySelectorAll(".card");
 
-function updateFocus(){
+const cardWidth = 170;
+const gap = 25;
+const fullWidth = cardWidth + gap;
 
-cards.forEach(c => c.classList.remove("active"));
-cards[index].classList.add("active");
+// CLONAR PARA LOOP
+cards.forEach(card => {
+  const firstClone = card.cloneNode(true);
+  const lastClone = card.cloneNode(true);
+
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, track.firstChild);
+});
+
+let allCards = document.querySelectorAll(".card");
+
+const numOriginals = cards.length;
+
+// empezamos en la primera original
+let index = numOriginals;
+
+function updateCarousel(instant = false){
+
+  if(instant){
+    track.style.transition = "none";
+  }else{
+    track.style.transition = "transform 0.5s ease";
+  }
+
+  const offset = (index - 2) * fullWidth;
+  track.style.transform = `translateX(${-offset}px)`;
+
+  allCards.forEach((card,i)=>{
+    card.classList.toggle("active", i === index);
+  });
 
 }
 
-function moveCarousel(){
+next.addEventListener("click",()=>{
 
-const cardWidth = cards[0].offsetWidth + 25;
+  index++;
+  updateCarousel();
 
-track.style.transform =
-`translateX(${-(index - 2) * cardWidth}px)`;
-
-updateFocus();
-
-}
-
-next.addEventListener("click", ()=>{
-
-index++;
-track.style.transition="transform 0.5s";
-moveCarousel();
+  if(index >= allCards.length - numOriginals){
+    setTimeout(()=>{
+      index = numOriginals;
+      updateCarousel(true);
+    },500);
+  }
 
 });
 
-prev.addEventListener("click", ()=>{
+prev.addEventListener("click",()=>{
 
-index--;
-track.style.transition="transform 0.5s";
-moveCarousel();
+  index--;
+  updateCarousel();
 
-});
-
-track.addEventListener("transitionend", ()=>{
-
-if(cards[index].classList.contains("clone")){
-
-track.style.transition="none";
-
-if(index >= cards.length-2){
-index = 2;
-}
-
-if(index <= 1){
-index = cards.length-3;
-}
-
-moveCarousel();
-
-}
+  if(index < numOriginals){
+    setTimeout(()=>{
+      index = allCards.length - numOriginals * 2;
+      updateCarousel(true);
+    },500);
+  }
 
 });
 
-moveCarousel();
+updateCarousel(true);
+
+
+
+
+/* SCROLL SUAVE UNIFORME */
+
+function smoothScroll(target, duration = 900){
+
+const element = document.querySelector(target);
+const targetPosition = element.offsetTop;
+const startPosition = window.pageYOffset;
+const distance = targetPosition - startPosition;
+
+let startTime = null;
+
+function animation(currentTime){
+
+if(!startTime) startTime = currentTime;
+
+const timeElapsed = currentTime - startTime;
+const progress = Math.min(timeElapsed / duration, 5);
+
+window.scrollTo(0, startPosition + distance * progress);
+
+if(timeElapsed < duration){
+requestAnimationFrame(animation);
+}
+
+}
+
+requestAnimationFrame(animation);
+
+}
+
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+anchor.addEventListener("click", function(e){
+
+e.preventDefault();
+
+const target = this.getAttribute("href");
+
+smoothScroll(target);
+
+});
+
+});
+
+
 
 });
