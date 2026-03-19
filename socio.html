@@ -1,124 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Socio Estratégico | ODC Consultora</title>
-
-  <!-- Tipografías -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="socio.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODC - Socio Estratégico</title>
+    <link rel="icon" href="assets/favicon.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="socio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <h1>Socio Estratégico</h1>
-    <p>Impulsamos proyectos de inversión con alcance nacional e internacional</p>
+    <div class="container">
+        <div class="card">
+            <div class="circle c1">01</div>
+            <div class="content">
+                <h3>Código de Ética</h3>
+                <p>Nuestra integridad como grupo de empresas y como individuos es lo más importante a preservar. Este Código respalda la manera en que creemos deberíamos hacer las cosas.</p>
+                <button class="card-button btn-1" onclick="openModal('modal1')">Leer Código</button>
+            </div>
+        </div>
 
-    <div class="hero-buttons">
-      <a href="#info" class="btn">Ver información</a>
-      <a href="https://wa.me/542646033020" target="_blank" class="btn btn-outline">Contactar</a>
-    </div>
-  </div>
-</section>
+        <div class="card">
+            <div class="circle c2">02</div>
+            <div class="content">
+                <h3>BIPSA Proyectos</h3>
+                <p>Potenciamos procesos de inversión de triple impacto, garantizando que los proyectos sean rentables, amigables con el medio ambiente y con fuerte impacto social. </p>
+                <button class="card-button btn-2" onclick="openModal('modal2')">Conocer más</button>
+            </div>
+        </div>
 
-<!-- BLOQUES -->
-<section class="bloques" id="info">
-  <div class="container grid">
-
-    <div class="card">
-      <h3>Código de Ética</h3>
-      <p>Basado en integridad, transparencia y compromiso empresarial.</p>
-    </div>
-
-    <div class="card">
-      <h3>Banco de Proyectos</h3>
-      <p>Conectamos oportunidades con inversión estratégica.</p>
-    </div>
-
-    <div class="card">
-      <h3>Proceso de Ingreso</h3>
-      <p>Evaluación profesional y vinculación empresarial.</p>
+        <div class="card">
+            <div class="circle c3">03</div>
+            <div class="content">
+                <h3>Solicitud de ingreso</h3>
+                <p>Inicie su proceso de incorporación a Latitud Sur / Altas Cumbres formalizando su solicitud como socio activo de nuestras Instituciones. </p>
+                <button class="card-button btn-3" onclick="openModal('modal3')">Visualizar Formulario</button>
+            </div>
+        </div>
     </div>
 
-  </div>
-</section>
-
-<!-- METRICAS -->
-<section class="metricas">
-  <div class="container grid">
-    <div class="metrica">
-      <h2>+100</h2>
-      <p>Proyectos evaluados</p>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h2>Código de Ética y Conducta</h2>
+            <div class="modal-body">
+                <p>Los principios de este Código respaldan la estrategia de desarrollo integral del Consorcio como su filosofía empresarial. El Directorio está comprometido con los más altos estándares de cumplimiento legal, ética e integridad, esperando que todos los empleados, proveedores y socios se adhieran a estos principios.</p>
+                <p>Actuamos como un actor comprometido con la puesta en práctica y promoción de los derechos humanos, civiles, políticos y sociales.</p>
+            </div>
+        </div>
     </div>
 
-    <div class="metrica">
-      <h2>+50</h2>
-      <p>Empresas vinculadas</p>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h2>BIPSA: Banco de Proyectos de Inversión</h2>
+            <div class="modal-body">
+                <p>BIPSA nació con el propósito de potenciar y desarrollar genuinos procesos de inversión, sistematizando proyectos bajo una matriz homogénea.</p>
+                <ul>
+                    <li><strong>Triple Impacto:</strong> Proyectos rentables, ecológicos y con impacto social.</li>
+                    <li><strong>Seguridad Jurídica:</strong> Contamos con un Tribunal Arbitral Internacional que garantiza la ley aplicable y resuelve conflictos bajo reglas de la UNCITRAL.</li>
+                    <li><strong>Enlace Global:</strong> Actuamos como puente entre empresas locales y operadores comerciales del exterior.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <div class="metrica">
-      <h2>Global</h2>
-      <p>Alcance internacional</p>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <h2 style="text-align: center;">Solicitud de Incorporación</h2>
+            <p style="font-size: 13px; text-align: center; color: #666;">Vista previa de la documentación requerida.</p>
+            
+            <div class="form-view">
+                <div class="form-line"><strong>Nombre y Apellido:</strong> .................................................... </div>
+                <div class="form-line"><strong>Empresa:</strong> .................................................... </div>
+                <div class="form-line"><strong>DNI:</strong> .................................................... </div>
+                <div class="form-line"><strong>Domicilio:</strong> .................................................... </div>
+                <div class="form-line"><strong>Celular:</strong> .................................................... </div>
+                <div class="form-line"><strong>Razón Social:</strong> .................................................... </div>
+              <div class="form-line"><strong>Domicilio Fiscal:</strong> .................................................... </div>
+               <div class="form-line"><strong>Asegurador:</strong> .................................................... </div>
+                <div class="form-line"><strong>CUIT:</strong> .................................................... </div>
+                <div class="form-line"><strong>Actividad Principal:</strong> .................................................... </div>
+                <div class="form-line"><strong>Nombre Representante:</strong> .................................................... </div>
+                <div class="form-line"><strong>Cargo:</strong> .................................................... </div>
+            </div>
+
+            <p style="font-size: 11px; margin-top: 15px; color: #888; text-align: justify;">
+                Al solicitar el ingreso, el postulante declara conocer y ratificar el Código de Ética y Conducta que rige los Consorcios.
+            </p>
+
+            <div class="contact-section">
+                <a href="https://wa.me/542646033020" class="contact-btn whatsapp">WhatsApp
+                <i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:consultoraodc@gmail.com" class="contact-btn email">Email para contacto
+                  <i class="fa-brands fa-email"></i>
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
-</section>
 
-<!-- ACORDEON -->
-<section class="acordeon">
-  <div class="container">
+    <script>
+        // Lógica de Modales
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+            document.body.style.overflow = "hidden"; // Bloquea scroll fondo
+        }
 
-    <h2>Información detallada</h2>
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+            document.body.style.overflow = "auto"; // Habilita scroll fondo
+        }
 
-    <button class="acordeon-btn">Código de Ética</button>
-    <div class="acordeon-content">
-      <p>
-        LATITUD SUR promueve el desarrollo empresarial basado en principios de ética, integridad y cumplimiento legal, garantizando un entorno profesional sustentable.
-      </p>
-    </div>
-
-    <button class="acordeon-btn">Banco de Proyectos</button>
-    <div class="acordeon-content">
-      <p>
-        BIPSA permite evaluar, desarrollar y conectar proyectos con inversores, asegurando viabilidad y crecimiento sostenible.
-      </p>
-    </div>
-
-    <button class="acordeon-btn">Proceso de Ingreso</button>
-    <div class="acordeon-content">
-      <p>
-        El proceso incluye validación de información, evaluación estratégica y vinculación empresarial.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <div class="container">
-    <h2>¿Querés formar parte?</h2>
-
-    <div class="cta-buttons">
-      <a href="https://wa.me/542646033020" target="_blank" class="btn">WhatsApp</a>
-      <a href="mailto:consultoraodc@gmail.com" class="btn btn-outline">Email</a>
-    </div>
-  </div>
-</section>
-
-<!-- SCRIPT -->
-<script>
-document.querySelectorAll(".acordeon-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const content = btn.nextElementSibling;
-    content.classList.toggle("active");
-  });
-});
-</script>
-
+        // Cerrar al hacer clic fuera del modal
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
 </body>
 </html>
