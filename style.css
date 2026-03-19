@@ -16,6 +16,10 @@ max-width:1200px;
 margin:auto;
 }
 
+.logo img {
+  height: 70px; /* ajustalo a gusto */
+  width: auto;
+}
 .navbar{
 position:fixed;
 top:0;
@@ -23,15 +27,16 @@ width:100%;
 padding:18px 0;
 transition:all 0.3s;
 z-index:1000;
+max-height: 100px;
 }
 
 .navbar.scrolled{
-background:white;
+background:#0c1a30;
 box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
 .navbar.scrolled a{
-color:#1c2b4a;
+color:#ffffff;
 }
 
 .navbar.scrolled .logo{
@@ -42,7 +47,7 @@ color:#1c2b4a;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 0;
+padding-bottom: 100px;
 color:white;
 }
 
