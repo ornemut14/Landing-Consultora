@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Socio Estratégico | ODC Consultora</title>
+
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="socio.css">
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Socio Estratégico</h1>
+    <p>Impulsamos proyectos de inversión con alcance nacional e internacional</p>
+
+    <div class="hero-buttons">
+      <a href="#info" class="btn">Ver información</a>
+      <a href="https://wa.me/542646033020" target="_blank" class="btn btn-outline">Contactar</a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOQUES -->
+<section class="bloques" id="info">
+  <div class="container grid">
+
+    <div class="card">
+      <h3>Código de Ética</h3>
+      <p>Basado en integridad, transparencia y compromiso empresarial.</p>
+    </div>
+
+    <div class="card">
+      <h3>Banco de Proyectos</h3>
+      <p>Conectamos oportunidades con inversión estratégica.</p>
+    </div>
+
+    <div class="card">
+      <h3>Proceso de Ingreso</h3>
+      <p>Evaluación profesional y vinculación empresarial.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- METRICAS -->
+<section class="metricas">
+  <div class="container grid">
+    <div class="metrica">
+      <h2>+100</h2>
+      <p>Proyectos evaluados</p>
+    </div>
+
+    <div class="metrica">
+      <h2>+50</h2>
+      <p>Empresas vinculadas</p>
+    </div>
+
+    <div class="metrica">
+      <h2>Global</h2>
+      <p>Alcance internacional</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACORDEON -->
+<section class="acordeon">
+  <div class="container">
+
+    <h2>Información detallada</h2>
+
+    <button class="acordeon-btn">Código de Ética</button>
+    <div class="acordeon-content">
+      <p>
+        LATITUD SUR promueve el desarrollo empresarial basado en principios de ética, integridad y cumplimiento legal, garantizando un entorno profesional sustentable.
+      </p>
+    </div>
+
+    <button class="acordeon-btn">Banco de Proyectos</button>
+    <div class="acordeon-content">
+      <p>
+        BIPSA permite evaluar, desarrollar y conectar proyectos con inversores, asegurando viabilidad y crecimiento sostenible.
+      </p>
+    </div>
+
+    <button class="acordeon-btn">Proceso de Ingreso</button>
+    <div class="acordeon-content">
+      <p>
+        El proceso incluye validación de información, evaluación estratégica y vinculación empresarial.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <h2>¿Querés formar parte?</h2>
+
+    <div class="cta-buttons">
+      <a href="https://wa.me/542646033020" target="_blank" class="btn">WhatsApp</a>
+      <a href="mailto:consultoraodc@gmail.com" class="btn btn-outline">Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPT -->
+<script>
+document.querySelectorAll(".acordeon-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const content = btn.nextElementSibling;
+    content.classList.toggle("active");
+  });
+});
+</script>
+
+</body>
+</html>

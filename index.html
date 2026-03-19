@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -31,8 +32,9 @@
 <nav>
 
 <a href="#hero">Inicio</a>
-<a href="#servicios">Servicios</a>
 <a href="#nosotros">Nosotros</a>
+<a href="#socio">Socio Estratégico</a>
+<a href="#servicios">Servicios</a>
 <a href="#contacto">Contacto</a>
 
 </nav>
@@ -47,7 +49,7 @@
 
 <div class="hero-content">
 
-<h1>CONSULTORA OLGUÍN DEL CASTILLO</h1>
+<h1>Consultora Olguín Del Castillo</h1>
 
 <p>Soluciones estratégicas para empresas, inversiones y proyectos.</p>
 
@@ -85,6 +87,30 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 <img src="assets/equipo-consultora.jpg">
 
 </div>
+
+</section>
+
+<section class="socio" id="socio">
+
+  <div class="container socio-grid">
+
+    <img src="assets/socio-estrategico.jpg" alt="Socio Estratégico">
+
+    <div>
+      <h2>Nuestro Socio Estratégico</h2>
+
+      <p>
+        Trabajamos junto a organizaciones líderes en el desarrollo de proyectos de inversión, promoviendo la vinculación entre empresas, capital y oportunidades a nivel nacional e internacional.
+      </p>
+
+      <p>
+         Nuestro socio estratégico impulsa iniciativas con enfoque sustentable, brindando seguridad jurídica, transparencia y acompañamiento en cada etapa del proceso.
+      </p>
+
+      <a href="socio.html" class="btn-socio">Inscripcion Proveedores Mineros</a>
+    </div>
+
+  </div>
 
 </section>
 
@@ -257,6 +283,29 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 </div>
 
 </section>
+
+
+
+<section class="empresas">
+
+  <div class="container">
+
+    <h2>Empresas que confían en nosotros</h2>
+
+    <div class="logos-grid">
+
+      <img src="assets/empresa1.png" alt="Empresa 1">
+      <img src="assets/empresa2.png" alt="Empresa 2">
+      <img src="assets/empresa3.png" alt="Empresa 3">
+      <img src="assets/empresa4.gif" alt="Empresa 4">
+    </div>
+
+  </div>
+
+</section>
+
+
+
 <section class="galeria-minera">
   <h2>Proyectos Mineros</h2>
   <div class="carousel">
@@ -274,8 +323,6 @@ la innovación y el compromiso con los resultados de nuestros clientes.
   </div>
 </section>
 
-
-
 <section class="contact" id="contacto">
 
 <div class="container contact-grid">
@@ -290,13 +337,13 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 
 </div>
 
-<form>
+<form id="contactForm">
 
-<input type="text" placeholder="Nombre">
-<input type="email" placeholder="Email">
-<textarea placeholder="Mensaje"></textarea>
+<input type="text" id="nombre" placeholder="Nombre">
+<input type="email" id="email" placeholder="Email">
+<textarea id="mensaje" placeholder="Mensaje"></textarea>
 
-<button>Enviar mensaje</button>
+<button type="submit">Enviar mensaje</button>
 
 </form>
 
@@ -323,14 +370,21 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 
 <div class="footer-col">
 <h4>Ubicación</h4>
-<p>San Juan, Argentina</p>
-<p>Consultoría para empresas y proyectos.</p>
+<a href="https://maps.app.goo.gl/977t1nHZUTDM17rS9?g_st=iw" target="_blank">
+  <p>25 de Mayo 568 (O) Piso 7 G <br>Capital San Juan, Argentina</p>
+  <p>(Coordinar Cita Previa)</p>
+</a>
 </div>
 
 <div class="footer-col">
 <h4>Contacto</h4>
-<p>WhatsApp</p>
-<p>Email</p>
+<a href="https://wa.me/542646033020" target="_blank">
+  <p>WhatsApp</p>
+</a>
+<a href="mailto:consultoraodc@gmail.com">
+  <p>Email</p>
+</a>
+<p>consultoraodc@gmail.com</p>
 </div>
 
 </div>
@@ -357,12 +411,32 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 </div>
 
 </div>
-<a href="https://wa.me/5492640000000" class="whatsapp-btn" target="_blank">
+<a href="https://wa.me/542646033020" class="whatsapp-btn" target="_blank">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
+  const nombre = document.getElementById("nombre").value;
+  const email = document.getElementById("email").value;
+  const mensaje = document.getElementById("mensaje").value;
+
+  if (!nombre || !email || !mensaje) {
+    alert("Por favor completá todos los campos");
+    return;
+  }
+
+  const texto = `Hola, quisiera hacer una consulta:\n\nNombre: ${nombre}\nEmail: ${email}\nConsulta:\n${mensaje}`;
+
+  const numero = "542646033020";
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+
+  window.open(url, "_blank");
+});
+</script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
 AOS.init({
