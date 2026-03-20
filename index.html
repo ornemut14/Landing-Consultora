@@ -20,26 +20,30 @@
 </head>
 
 <body>
-
 <header class="navbar">
 
-<div class="container nav">
+  <div class="container nav">
 
-<div class="logo">
-  <img src="assets/logo.png" alt="ODC Consultora">
-</div>
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="assets/logo.png" alt="ODC Consultora">
+    </div>
 
-<nav>
+    <!-- MENÚ -->
+    <nav class="nav-links" id="navLinks">
+      <a href="#hero">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#socio">Socio Estratégico</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
 
-<a href="#hero">Inicio</a>
-<a href="#nosotros">Nosotros</a>
-<a href="#socio">Socio Estratégico</a>
-<a href="#servicios">Servicios</a>
-<a href="#contacto">Contacto</a>
+    <!-- HAMBURGUESA -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
 
-</nav>
-
-</div>
+  </div>
 
 </header>
 
@@ -417,6 +421,21 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 
 
 <script>
+/* ================= MENU ================= */
+
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
+
+/* 🔥 cerrar menú al hacer click en una opción */
+document.querySelectorAll("#navLinks a").forEach(link => {
+  link.addEventListener("click", function() {
+    document.getElementById("navLinks").classList.remove("active");
+  });
+});
+
+/* ================= FORMULARIO ================= */
+
 document.getElementById("contactForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -436,12 +455,12 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
   window.open(url, "_blank");
 });
-</script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
+
+/* ================= AOS ================= */
+
 AOS.init({
-duration:1000,
-once:true
+  duration: 1000,
+  once: true
 });
 </script>
 </body>

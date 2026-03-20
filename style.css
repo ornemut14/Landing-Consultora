@@ -10,6 +10,9 @@ body{
 color:#1e2a38;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 .container{
 width:90%;
 max-width:1200px;
@@ -56,6 +59,60 @@ margin-left:25px;
 color:white;
 text-decoration:none;
 font-weight:500;
+}
+
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* menú normal */
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+/* hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px){
+
+  .menu-toggle {
+    display: block;
+  }
+
+   .nav-links{
+    position:absolute;
+    top:70px;
+    right:0;
+    width:100%;
+    background:#0c1a30;
+
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    padding:20px 0;
+
+    display:none;
+
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  .nav-links.active{
+    display:flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .hero{
@@ -645,4 +702,141 @@ color:#aaa;
 a {
   text-decoration: none;
   color: inherit;
+}
+
+
+/* ================= NAV RESPONSIVE ================= */
+
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  color:white;
+  cursor:pointer;
+
+  position: relative;
+  top: -15px; /* 🔥 lo sube un poco */
+}
+
+/* links normales */
+.nav-links{
+  display:flex;
+  gap:25px;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:80px;
+    right:0;
+    width:100%;
+    background:#0c1a30;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    padding:20px 0;
+
+    display:none;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .nav-links a{
+    margin:0;
+  }
+}
+@media (max-width: 768px){
+  .hero{
+    height:auto;
+    padding:120px 20px 80px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    gap:10px;
+  }
+}
+@media (max-width: 900px){
+  .about-grid,
+  .socio-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+}
+@media (max-width: 576px){
+  .services{
+    padding:60px 15px;
+  }
+}
+@media (max-width: 992px){
+  .values-container{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 576px){
+  .values-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* ================= GALERIA MOBILE (FIX REAL) ================= */
+
+@media (max-width: 768px){
+
+  .carousel-wrapper{
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+  }
+
+  .carousel-track{
+    display: flex;
+    justify-content: center;
+    transform: none !important; /* 🔥 evita corrimientos raros */
+  }
+
+  /* TODAS las cards ocultas */
+  .carousel-track .card{
+    display: none;
+  }
+
+  /* SOLO la activa visible */
+  .carousel-track .card.active{
+    display: block;
+    width: 85%;
+    max-width: 300px;
+    height: auto;
+
+    margin: 0 auto;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+@media (max-width: 576px){
+  .footer{
+    text-align:center;
+  }
 }
