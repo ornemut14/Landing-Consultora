@@ -1,20 +1,29 @@
 :root {
-    --color-1: #76d7c4; /* Turquesa */
-    --color-2: #7fb3d5; /* Azul claro */
-    --color-3: #8e8cd8; /* Lavanda */
+    --color-1: #76d7c4;
+    --color-2: #7fb3d5;
+    --color-3: #8e8cd8;
     --bg-body: #f4f7f6;
     --text-color: #777;
 }
 
 body {
-    background-color: var(--bg-body);
+    background-image: url("assets/montanas.jpg"); /* tu imagen */
+    background-size: cover;       /* ocupa toda la pantalla */
+    background-position: center;  /* centrada */
+    background-repeat: no-repeat; /* no se repite */
+    background-attachment: fixed; /* efecto pro (queda fija) */
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     margin: 0;
 }
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4); /* oscuridad */
+    z-index: -1;
+}
+/* ================= CARDS ================= */
 
 .container {
     display: flex;
@@ -33,7 +42,6 @@ body {
     margin-top: 50px;
 }
 
-/* El círculo con el número */
 .circle {
     width: 160px;
     height: 100px;
@@ -53,25 +61,21 @@ body {
 .c2 { background-color: var(--color-2); }
 .c3 { background-color: var(--color-3); }
 
-/* La parte blanca inferior */
 .content {
     background-color: white;
-    padding: 60px 30px 40px 30px;
-    border-radius: 20px 20px 150px 150px; /* Ajustado para mantener forma de cápsula */
+    padding: 60px 30px 40px;
+    border-radius: 20px 20px 150px 150px;
     text-align: center;
     margin-top: -30px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    z-index: 2;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between; /* Asegura que el botón vaya al fondo */
-    min-height: 340px; /* Altura mínima para uniformidad */
-    box-sizing: border-box;
+    justify-content: space-between;
+    min-height: 340px;
 }
 
 .content h3 {
-    margin: 0 0 15px 0;
+    margin-bottom: 15px;
     font-size: 1.5rem;
 }
 
@@ -83,18 +87,16 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     font-size: 0.95rem;
-    margin: 0 0 20px 0; /* Espacio antes del botón */
 }
 
-/* Estilo general de los botones */
+/* BOTONES */
 .card-button {
-    display: inline-block;
     padding: 12px 25px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
     font-size: 14px;
-    transition: all 0.3s ease;
+    transition: 0.3s;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     border: none;
     cursor: pointer;
@@ -107,62 +109,135 @@ body {
 .card-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    filter: brightness(1.1);
 }
-
-/* --- ESTILOS PARA MODALES (AGREGADOS) --- */
-
+/* ================= MODAL ================= */
 .modal {
-    display: none;
+    display: none; /* 🔥 IMPORTANTE: oculto por defecto */
     position: fixed;
     z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-color: rgba(0,0,0,0.6);
-    backdrop-filter: blur(5px);
 }
 
+/* SOLO cuando está activo */
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: 60px;
+    padding-bottom: 40px;
+
+    overflow-y: auto; /* scroll */
+}
+
+/* CONTENIDO */
 .modal-content {
-    background-color: white;
-    margin: 10vh auto;
-    padding: 40px;
-    border-radius: 25px;
-    width: 90%;
-    max-width: 600px;
+    background: #fff;
+    width: 95%;
+    max-width: 1000px;
+
+    border-radius: 12px;
+    padding: 30px;
     position: relative;
-    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+
+    margin: 0 auto; /* centrado horizontal */
+
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     animation: fadeIn 0.3s ease;
 }
+/* BOTÓN CERRAR */
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
 
+.close:hover {
+    color: #333;
+}
+
+/* SCROLL */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+/* ANIMACIÓN */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.close {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 28px;
-    color: #aaa;
-    cursor: pointer;
+/* ================= FORM ================= */
+
+.modal-image {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 
-.close:hover { color: #333; }
+.modal-image img {
+  width: 100%;
+  max-width: 600px; /* tamaño controlado */
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
 
-/* Estilo para el formulario del modal 3 */
-.modal-form {
+.modal-content img {
+    display: block;
+    margin: 20px auto; /* 🔥 centra horizontal */
+    max-width: 100%;   /* no se rompe en pantallas chicas */
+    height: auto;
+
+    border-radius: 10px; /* opcional, queda más pro */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* opcional */
+}
+/* ================= CONTACTO ================= */
+
+.contact-section {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
 }
 
-.modal-form input {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 14px;
+.contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+/* WHATSAPP */
+.whatsapp-btn {
+    background: #25D366;
+}
+
+/* EMAIL */
+.email-btn {
+    background: #2c3e50;
+}
+
+/* HOVER */
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.contact-btn i {
+    font-size: 18px;
 }
