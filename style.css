@@ -801,39 +801,97 @@ a {
 }
 
 
-/* ================= GALERIA MOBILE (FIX REAL) ================= */
 
-@media (max-width: 768px){
+/* variables */
+:root{
+  --card-width:170px;
+  --card-height:260px;
+  --card-gap:25px;
+}
+
+/* ================= BASE ================= */
+
+.carousel{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  width:100%;
+}
+
+.carousel-wrapper{
+  width: calc((var(--card-width) * 5) + (var(--card-gap) * 4));
+  overflow:hidden;
+  padding:100px 0;
+  margin:auto;
+}
+
+.carousel-track{
+  display:flex;
+  align-items:center;
+  gap:var(--card-gap);
+  transition:transform 0.5s ease-in-out;
+  width:max-content;
+}
+
+.card{
+  width:var(--card-width);
+  height:300px;
+  object-fit:cover;
+  border-radius:20px;
+
+  opacity:0.5;
+  transform:scale(0.85);
+
+  transition:all 0.4s ease;
+  flex-shrink:0;
+}
+
+.card.active{
+  opacity:1;
+  transform:scale(1.25);
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+  z-index:5;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1024px){
+  :root{
+    --card-width:140px;
+    --card-gap:20px;
+  }
 
   .carousel-wrapper{
-    width: 100%;
-    overflow: hidden;
-    padding: 40px 0;
+    width: calc((var(--card-width) * 3) + (var(--card-gap) * 2));
+    padding:80px 0;
   }
 
-  .carousel-track{
-    display: flex;
-    justify-content: center;
-    transform: none !important; /* 🔥 evita corrimientos raros */
+  .card.active{
+    transform:scale(1.15);
+  }
+}
+
+/* ================= CELULAR ================= */
+
+@media (max-width: 600px){
+  :root{
+    --card-width:120px;
+    --card-gap:15px;
   }
 
-  /* TODAS las cards ocultas */
-  .carousel-track .card{
-    display: none;
+  .carousel-wrapper{
+    width: calc((var(--card-width) * 1.5) + var(--card-gap));
+    padding:60px 0;
   }
 
-  /* SOLO la activa visible */
-  .carousel-track .card.active{
-    display: block;
-    width: 85%;
-    max-width: 300px;
-    height: auto;
-
-    margin: 0 auto;
-    opacity: 1;
-    transform: scale(1);
+  .card{
+    height:220px;
   }
 
+  .card.active{
+    transform:scale(1.1);
+  }
 }
 @media (max-width: 576px){
   .footer{
