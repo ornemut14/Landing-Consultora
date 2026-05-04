@@ -48,9 +48,14 @@ const prev = document.querySelector(".prev");
 
 let cards = document.querySelectorAll(".card");
 
-const cardWidth = 170;
-const gap = 25;
-const fullWidth = cardWidth + gap;
+const numOriginals = cards.length;
+
+function getMetrics(){
+  const cardEl = track.querySelector(".card");
+  const realWidth = cardEl.offsetWidth;
+  const realGap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--card-gap'));
+  return { realWidth, realGap, fullWidth: realWidth + realGap };
+}
 
 // CLONAR PARA LOOP
 cards.forEach(card => {
@@ -63,12 +68,14 @@ cards.forEach(card => {
 
 let allCards = document.querySelectorAll(".card");
 
-const numOriginals = cards.length;
-
-// empezamos en la primera original
 let index = numOriginals;
 
 function updateCarousel(instant = false){
+
+  const { realWidth, realGap, fullWidth } = getMetrics();
+  const wrapperWidth = document.querySelector('.carousel-wrapper').offsetWidth;
+  const centerOffset = (wrapperWidth / 2) - (realWidth / 2);
+  const offset = index * fullWidth - centerOffset;
 
   if(instant){
     track.style.transition = "none";
@@ -76,7 +83,6 @@ function updateCarousel(instant = false){
     track.style.transition = "transform 0.5s ease";
   }
 
-  const offset = (index - 2) * fullWidth;
   track.style.transform = `translateX(${-offset}px)`;
 
   allCards.forEach((card,i)=>{
@@ -115,7 +121,9 @@ prev.addEventListener("click",()=>{
 
 updateCarousel(true);
 
-
+window.addEventListener("resize", ()=>{
+  updateCarousel(true);
+});
 
 
 /* SCROLL SUAVE UNIFORME */

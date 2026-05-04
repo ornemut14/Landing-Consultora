@@ -20,8 +20,9 @@ margin:auto;
 }
 
 .logo img {
-  height: 70px; /* ajustalo a gusto */
+  height: 70px;
   width: auto;
+  display: block;
 }
 .navbar{
 position:fixed;
@@ -881,8 +882,8 @@ a {
   }
 
   .carousel-wrapper{
-    width: calc((var(--card-width) * 1.5) + var(--card-gap));
-    padding:60px 0;
+    width: calc((var(--card-width) * 3) + (var(--card-gap) * 2));
+    padding:80px 0;
   }
 
   .card{
@@ -890,7 +891,7 @@ a {
   }
 
   .card.active{
-    transform:scale(1.1);
+    transform:scale(1.15);
   }
 }
 @media (max-width: 576px){
