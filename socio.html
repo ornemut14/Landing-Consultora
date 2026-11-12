@@ -5,141 +5,255 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ODC - Socio Estratégico</title>
     <link rel="icon" href="assets/favicon.jpg" type="image/jpeg">
+    <link rel="preload" as="image" href="assets/montanas-hq.webp" fetchpriority="high">
     <link rel="stylesheet" href="socio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <div class="container">
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html" aria-label="ODC Consultora — Inicio">
+                <img src="assets/logo.webp" alt="Logotipo de ODC Consultora" width="506" height="140">
+            </a>
+
+            <nav class="site-nav" id="siteNav" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#nosotros">Nosotros</a>
+                <a href="socio.html" aria-current="page">Socio Estratégico</a>
+                <a href="index.html#servicios">Servicios</a>
+                <a href="index.html#contacto">Contacto</a>
+            </nav>
+
+            <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="siteNav" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container" id="contenido" tabindex="-1">
+        <h1 class="sr-only">ODC Consultora — Socio Estratégico</h1>
+
         <div class="card">
-            <div class="circle c1">01</div>
+            <div class="circle c1" aria-hidden="true">01</div>
             <div class="content">
-                <h3>Código de Ética</h3>
+                <h2>Código de Ética</h2>
                 <p>Nuestra integridad como grupo de empresas y como individuos es lo más importante a preservar. Este Código respalda la manera en que creemos deberíamos hacer las cosas.</p>
-                <button class="card-button btn-1" onclick="openModal('modal1')">Leer Código</button>
+                <button type="button" class="card-button btn-1" aria-haspopup="dialog" aria-controls="modal1" onclick="openModal('modal1')">Leer Código<span class="btn-arrow" aria-hidden="true">→</span></button>
             </div>
         </div>
 
         <div class="card">
-            <div class="circle c2">02</div>
+            <div class="circle c2" aria-hidden="true">02</div>
             <div class="content">
-                <h3>BIPSA Proyectos</h3>
+                <h2>BIPSA Proyectos</h2>
                 <p>Potenciamos procesos de inversión de triple impacto, garantizando que los proyectos sean rentables, amigables con el medio ambiente y con fuerte impacto social. </p>
-                <button class="card-button btn-2" onclick="openModal('modal2')">Conocer más</button>
+                <button type="button" class="card-button btn-2" aria-haspopup="dialog" aria-controls="modal2" onclick="openModal('modal2')">Conocer más<span class="btn-arrow" aria-hidden="true">→</span></button>
             </div>
         </div>
 
         <div class="card">
-            <div class="circle c3">03</div>
+            <div class="circle c3" aria-hidden="true">03</div>
             <div class="content">
-                <h3>Solicitud de ingreso</h3>
+                <h2>Solicitud de ingreso</h2>
                 <p>Inicie su proceso de incorporación a Latitud Sur / Altas Cumbres formalizando su solicitud como socio activo de nuestras Instituciones. </p>
-                <button class="card-button btn-3" onclick="openModal('modal3')">Visualizar Formulario</button>
+                <button type="button" class="card-button btn-3" aria-haspopup="dialog" aria-controls="modal3" onclick="openModal('modal3')">Visualizar Formulario<span class="btn-arrow" aria-hidden="true">→</span></button>
             </div>
+        </div>
+    </main>
+
+    <div id="modal1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal1-title" aria-hidden="true">
+        <div class="modal-content">
+            <button type="button" class="close" aria-label="Cerrar ventana" onclick="closeModal('modal1')">&times;</button>
+            <h2 id="modal1-title">Código de Ética y Conducta</h2>
+
+            <div class="modal-body">
+                <p>
+                    En LATITUD SUR Consorcio de Cooperación Internacional (LSCCI) establecemos este Código de Ética y Conducta con el objetivo de garantizar el cumplimiento de principios basados en la integridad, la transparencia y el respeto.
+                </p>
+
+                <p>
+                    Nuestro compromiso se centra en promover un entorno de desarrollo responsable, fomentando el respeto por los derechos humanos, sociales y económicos, y actuando con responsabilidad en cada una de nuestras operaciones.
+                </p>
+
+                <p>
+                    El Directorio impulsa altos estándares legales y éticos, esperando que todas las empresas, colaboradores y socios que integran el consorcio actúen bajo estos valores, siendo cada integrante un representante de nuestra organización.
+                </p>
+
+                <p>
+                    Este Código funciona como una guía para la toma de decisiones, la prevención de conflictos y la construcción de una organización sólida, confiable y sustentable.
+                </p>
+            </div>
+
         </div>
     </div>
 
-<div id="modal1" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal1')">&times;</span>
-    <h2>Código de Ética y Conducta</h2>
+    <div id="modal2" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal2-title" aria-hidden="true">
+        <div class="modal-content">
+            <button type="button" class="close" aria-label="Cerrar ventana" onclick="closeModal('modal2')">&times;</button>
+            <h2 id="modal2-title">BIPSA - Banco de Proyectos de Inversión</h2>
+            <img class="modal-logo" src="assets/bipsa.webp" alt="Logotipo de BIPSA, Banco de Proyectos de Inversión" width="247" height="190" loading="lazy" decoding="async">
+            <div class="modal-body">
+                <p>
+                    BIPSA (Banco de Proyectos de Inversión S.A.) es una iniciativa orientada a potenciar, desarrollar y conectar proyectos de inversión tanto a nivel nacional como internacional, integrando en un mismo ámbito oportunidades de negocio con capital disponible.
+                </p>
 
-    <div class="modal-body">
-      <p>
-        En LATITUD SUR Consorcio de Cooperación Internacional (LSCCI) establecemos este Código de Ética y Conducta con el objetivo de garantizar el cumplimiento de principios basados en la integridad, la transparencia y el respeto.
-      </p>
+                <p>
+                    Su enfoque se basa en proyectos de triple impacto, combinando rentabilidad económica, sostenibilidad ambiental y desarrollo social, garantizando su viabilidad mediante análisis técnicos, financieros y estratégicos.
+                </p>
 
-      <p>
-        Nuestro compromiso se centra en promover un entorno de desarrollo responsable, fomentando el respeto por los derechos humanos, sociales y económicos, y actuando con responsabilidad en cada una de nuestras operaciones.
-      </p>
+                <p>
+                    BIPSA actúa como nexo entre empresas, inversores y mercados internacionales, promoviendo la generación de oportunidades, la internacionalización de PyMES y el fortalecimiento de procesos de inversión.
+                </p>
 
-      <p>
-        El Directorio impulsa altos estándares legales y éticos, esperando que todas las empresas, colaboradores y socios que integran el consorcio actúen bajo estos valores, siendo cada integrante un representante de nuestra organización.
-      </p>
+                <p>
+                    La organización se sustenta en pilares fundamentales como la seguridad jurídica —a través de un Tribunal Arbitral Internacional—, el compliance y la transparencia, asegurando procesos confiables y eficientes.
+                </p>
 
-      <p>
-        Este Código funciona como una guía para la toma de decisiones, la prevención de conflictos y la construcción de una organización sólida, confiable y sustentable.
-      </p>
+                <p>
+                    Su misión es convertirse en un socio estratégico clave para empresas y emprendedores, facilitando procesos de inversión ágiles, sustentables y competitivos en un contexto global.
+                </p>
+            </div>
+
+        </div>
     </div>
 
-  </div>
-</div>
+    <div id="modal3" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal3-title" aria-hidden="true">
+        <div class="modal-content">
+            <button type="button" class="close" aria-label="Cerrar ventana" onclick="closeModal('modal3')">&times;</button>
 
-<div id="modal2" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal2')">&times;</span>
-    <h2>BIPSA - Banco de Proyectos de Inversión</h2>
-<img src="assets/bipsa.png" alt="Bipsa">
-    <div class="modal-body">
-      <p>
-        BIPSA (Banco de Proyectos de Inversión S.A.) es una iniciativa orientada a potenciar, desarrollar y conectar proyectos de inversión tanto a nivel nacional como internacional, integrando en un mismo ámbito oportunidades de negocio con capital disponible.
-      </p>
+            <h2 id="modal3-title">Solicitud de ingreso</h2>
 
-      <p>
-        Su enfoque se basa en proyectos de triple impacto, combinando rentabilidad económica, sostenibilidad ambiental y desarrollo social, garantizando su viabilidad mediante análisis técnicos, financieros y estratégicos.
-      </p>
+            <!-- IMAGEN INSTITUCIONAL: conservar el archivo original sin modificaciones -->
+            <div class="modal-image">
+                <img src="assets/image.webp" alt="Formulario de solicitud de incorporación como socio activo" width="533" height="620" loading="lazy" decoding="async">
+            </div>
+            <a class="form-zoom" href="assets/image.webp" target="_blank" rel="noopener">
+                Ampliar formulario<span class="sr-only"> en una pestaña nueva</span> <span aria-hidden="true">↗</span>
+            </a>
 
-      <p>
-        BIPSA actúa como nexo entre empresas, inversores y mercados internacionales, promoviendo la generación de oportunidades, la internacionalización de PyMES y el fortalecimiento de procesos de inversión.
-      </p>
+            <h2 class="contact-title">Contactanos</h2>
 
-      <p>
-        La organización se sustenta en pilares fundamentales como la seguridad jurídica —a través de un Tribunal Arbitral Internacional—, el compliance y la transparencia, asegurando procesos confiables y eficientes.
-      </p>
+            <div class="contact-section">
+                <a href="https://wa.me/542646033020" class="contact-btn whatsapp-btn">
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                </a>
 
-      <p>
-        Su misión es convertirse en un socio estratégico clave para empresas y emprendedores, facilitando procesos de inversión ágiles, sustentables y competitivos en un contexto global.
-      </p>
-    </div>
+                <a href="mailto:consultoraodc@gmail.com" class="contact-btn email-btn">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email
+                </a>
+            </div>
 
-  </div>
-</div>
-
-    <div id="modal3" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal3')">&times;</span>
-
-    <h2 style="text-align: center;">Solicitud de Incorporación</h2>
-
-    <!-- IMAGEN -->
-    <div class="modal-image">
-      <img src="assets/image.png" alt="Solicitud de incorporación">
-    </div>
-
-    <h2>Contactanos</h2>
-
-    <div class="contact-section">
-      <a href="https://wa.me/542646033020" class="contact-btn whatsapp-btn">
-        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-      </a>
-
-      <a href="mailto:consultoraodc@gmail.com" class="contact-btn email-btn">
-        <i class="fa-solid fa-envelope"></i> Email
-      </a>
-    </div>
-
-  </div>
-</div>
         </div>
     </div>
 
     <script>
+let lastFocusedElement = null;
+
+function getFocusable(container) {
+    return Array.from(container.querySelectorAll(
+        'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )).filter(el => el.offsetParent !== null || el === document.activeElement);
+}
+
+function handleModalKeydown(event) {
+    const openModalElement = document.querySelector('.modal.active');
+    if (!openModalElement) return;
+
+    if (event.key === 'Escape') {
+        closeModal(openModalElement.id);
+        return;
+    }
+
+    if (event.key !== 'Tab') return;
+
+    const focusable = getFocusable(openModalElement);
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+    }
+}
+
 function openModal(id) {
-    document.getElementById(id).classList.add("active");
-    document.body.style.overflow = "hidden";
+    const modal = document.getElementById(id);
+    lastFocusedElement = document.activeElement;
+
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+
+    document.addEventListener('keydown', handleModalKeydown);
+
+    modal.querySelector('.close').focus();
 }
 
 function closeModal(id) {
-    document.getElementById(id).classList.remove("active");
-    document.body.style.overflow = "auto";
+    const modal = document.getElementById(id);
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+
+    if (!document.querySelector('.modal.active')) {
+        document.body.classList.remove('modal-open');
+    }
+
+    document.removeEventListener('keydown', handleModalKeydown);
+
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+        lastFocusedElement = null;
+    }
+}
+
+/* ===== Menú de navegación móvil (igual al de index.html) ===== */
+
+function toggleMenu() {
+    const nav = document.getElementById('siteNav');
+    const button = document.querySelector('.menu-toggle');
+    const isOpen = nav.classList.toggle('active');
+
+    button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    button.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+}
+
+function closeMenu() {
+    const nav = document.getElementById('siteNav');
+    const button = document.querySelector('.menu-toggle');
+    if (!nav || !nav.classList.contains('active')) return;
+
+    nav.classList.remove('active');
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-label', 'Abrir menú de navegación');
 }
 
 window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
-        event.target.classList.remove("active");
-        document.body.style.overflow = "auto";
+        closeModal(event.target.id);
+    }
+
+    const nav = document.getElementById('siteNav');
+    if (nav && nav.classList.contains('active') &&
+        !nav.contains(event.target) && !event.target.closest('.menu-toggle')) {
+        closeMenu();
     }
 }
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') closeMenu();
+});
+
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 860) closeMenu();
+});
     </script>
 </body>
 </html>

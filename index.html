@@ -7,30 +7,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Consultora ODC - La excelencia en proyectos</title>
-<link rel="icon" href="assets/favicon.jpg" type="image/jpeg">
+<meta name="description" content="Consultora Olguín Del Castillo: asesoramiento contable, financiero, legal y técnico para empresas y proyectos de inversión en San Juan, Argentina.">
+<link rel="icon" href="assets/favicon-96.jpg" type="image/jpeg">
+
+<!-- LCP: precarga del hero según resolución -->
+<link rel="preload" as="image" href="assets/hero-mineria.webp" media="(min-width:769px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-mineria-mobile.webp" media="(max-width:768px)" fetchpriority="high">
+
+<!-- Conexiones anticipadas a orígenes de terceros -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="estilos.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome: carga no bloqueante con fallback -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+
+<script src="script.js" defer></script>
 </head>
 
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
 <header class="navbar">
 
   <div class="container nav">
 
     <!-- LOGO -->
     <div class="logo">
-      <img src="assets/logo.png" alt="ODC Consultora">
+      <img src="assets/logo.webp" alt="Logotipo de ODC Consultora" width="506" height="140">
     </div>
 
     <!-- MENÚ -->
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
       <a href="#hero">Inicio</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#socio">Socio Estratégico</a>
@@ -39,17 +53,19 @@
     </nav>
 
     <!-- HAMBURGUESA -->
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <i class="fa-solid fa-bars"></i>
-    </div>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinks" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
 
   </div>
 
 </header>
 
+<main id="contenido" tabindex="-1">
+
 <section class="hero" id="hero">
 
-<div class="overlay"></div>
+<div class="overlay" aria-hidden="true"></div>
 
 <div class="hero-content">
 
@@ -88,7 +104,7 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 
 </div>
 
-<img src="assets/equipo-consultora.jpg">
+<img src="assets/equipo-consultora.webp" alt="Equipo de Consultora Olguín Del Castillo" width="1000" height="634" loading="lazy" decoding="async">
 
 </div>
 
@@ -98,7 +114,7 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 
   <div class="container socio-grid">
 
-    <img src="assets/socio-estrategico.jpg" alt="Socio Estratégico">
+    <img src="assets/socio-estrategico.webp" alt="Logotipo de Latitud Sur, socio estratégico de ODC Consultora" width="1150" height="924" loading="lazy" decoding="async">
 
     <div>
       <h2>Nuestro Socio Estratégico</h2>
@@ -124,9 +140,9 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 
 <div class="services-grid">
 
-<div class="service-card" onclick="openModal('mineria')">
+<div class="service-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal" onclick="openModal('mineria')">
 
-<img src="assets/mineria-servicio.jpg" alt="Minería y Construcción">
+<img src="assets/mineria-servicio.webp" alt="" width="760" height="508" loading="lazy" decoding="async">
 
 <h3>Industria y Proyectos</h3>
 
@@ -134,9 +150,9 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 
 </div>
 
-<div class="service-card" onclick="openModal('finanzas')">
+<div class="service-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal" onclick="openModal('finanzas')">
 
-<img src="assets/finanzas-servicio.jpg" alt="Inversiones y Finanzas">
+<img src="assets/finanzas-servicio.webp" alt="" width="760" height="416" loading="lazy" decoding="async">
 
 <h3>Finanzas y Estrategia</h3>
 
@@ -144,9 +160,9 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 
 </div>
 
-<div class="service-card" onclick="openModal('contable')">
+<div class="service-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal" onclick="openModal('contable')">
 
-<img src="assets/legal-servicio.jpg" alt="Contable y Legal">
+<img src="assets/legal-servicio.webp" alt="" width="760" height="364" loading="lazy" decoding="async">
 
 <h3>Corporativo y Contable</h3>
 
@@ -167,7 +183,7 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 <div class="card-cultura vision">
 
 <div class="icono-box">
-<i class="fa-solid fa-lightbulb"></i>
+<i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
 </div>
 
 <div class="text">
@@ -190,7 +206,7 @@ adelantarnos a los desafíos de un mercado global en constante evolución.
 <div class="card-cultura mision">
 
 <div class="icono-box">
-<i class="fa-solid fa-rocket"></i>
+<i class="fa-solid fa-rocket" aria-hidden="true"></i>
 </div>
 
 <div class="text">
@@ -223,10 +239,10 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 <div class="value-item">
 
 <div class="value-icon">
-<i class="fa-solid fa-award"></i>
+<i class="fa-solid fa-award" aria-hidden="true"></i>
 </div>
 
-<h4>Excelencia</h4>
+<h3>Excelencia</h3>
 
 <p>Calidad técnica y actualización constante en normativas contables, financieras y mineras.</p>
 
@@ -236,10 +252,10 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 <div class="value-item">
 
 <div class="value-icon">
-<i class="fa-solid fa-shield-halved"></i>
+<i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
 </div>
 
-<h4>Integridad y Transparencia</h4>
+<h3>Integridad y Transparencia</h3>
 
 <p>Construimos relaciones de confianza a largo plazo a través de una comunicación clara y honesta.</p>
 
@@ -249,10 +265,10 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 <div class="value-item">
 
 <div class="value-icon">
-<i class="fa-solid fa-lightbulb"></i>
+<i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
 </div>
 
-<h4>Visión Estrategica</h4>
+<h3>Visión Estrategica</h3>
 
 <p>Anticipamos desafíos futuros para asegurar la rentabilidad y sostenibilidad de cada proyecto.</p>
 
@@ -262,10 +278,10 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 <div class="value-item">
 
 <div class="value-icon">
-<i class="fa-solid fa-handshake"></i>
+<i class="fa-solid fa-handshake" aria-hidden="true"></i>
 </div>
 
-<h4>Compromiso</h4>
+<h3>Compromiso</h3>
 
 <p>Estamos dedicados al desarrollo productivo de nuestra provincia.</p>
 
@@ -275,10 +291,10 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 <div class="value-item">
 
 <div class="value-icon">
-<i class="fa-solid fa-chess"></i>
+<i class="fa-solid fa-chess" aria-hidden="true"></i>
 </div>
 
-<h4>Innovacion en soluciones</h4>
+<h3>Innovacion en soluciones</h3>
 
 <p>Aplicamos herramientas modernas de gestión y análisis para simplificar procesos complejos y maximizar resultados.</p>
 
@@ -298,10 +314,10 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 
     <div class="logos-grid">
 
-      <img src="assets/empresa1.png" alt="Empresa 1">
-      <img src="assets/empresa2.png" alt="Empresa 2">
-      <img src="assets/empresa3.png" alt="Empresa 3">
-      <img src="assets/empresa4.gif" alt="Empresa 4">
+      <img src="assets/empresa1.webp" alt="Logotipo de Scienza" width="721" height="160" loading="lazy" decoding="async">
+      <img src="assets/empresa2.webp" alt="Logotipo de Tensolid" width="270" height="125" loading="lazy" decoding="async">
+      <img src="assets/empresa3.png" alt="Logotipo de Farmat" width="523" height="269" loading="lazy" decoding="async">
+      <img src="assets/empresa4.webp" alt="Logotipo de Medexpress" width="240" height="160" loading="lazy" decoding="async">
     </div>
 
   </div>
@@ -312,18 +328,18 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 
 <section class="galeria-minera">
   <h2>Proyectos Mineros</h2>
-  <div class="carousel">
-    <button class="carousel-btn prev">&#10094;</button>
+  <div class="carousel" role="region" aria-label="Galería de proyectos mineros">
+    <button class="carousel-btn prev" type="button" aria-label="Imagen anterior">&#10094;</button>
     <div class="carousel-wrapper">
       <div class="carousel-track" id="track">
-        <img src="assets/mina1.jpg" class="card">
-        <img src="assets/mina2.jpg" class="card">
-        <img src="assets/mina3.jpg" class="card">
-        <img src="assets/mina4.jpg" class="card">
-        <img src="assets/mina5.jpg" class="card">
+        <img src="assets/mina1.webp" alt="Proyecto minero en San Juan, fotografía 1 de 5" class="card" width="440" height="440" loading="lazy" decoding="async">
+        <img src="assets/mina2.webp" alt="Proyecto minero en San Juan, fotografía 2 de 5" class="card" width="440" height="733" loading="lazy" decoding="async">
+        <img src="assets/mina3.webp" alt="Proyecto minero en San Juan, fotografía 3 de 5" class="card" width="440" height="662" loading="lazy" decoding="async">
+        <img src="assets/mina4.webp" alt="Proyecto minero en San Juan, fotografía 4 de 5" class="card" width="440" height="561" loading="lazy" decoding="async">
+        <img src="assets/mina5.webp" alt="Proyecto minero en San Juan, fotografía 5 de 5" class="card" width="440" height="781" loading="lazy" decoding="async">
       </div>
     </div>
-    <button class="carousel-btn next">&#10095;</button>
+    <button class="carousel-btn next" type="button" aria-label="Siguiente imagen">&#10095;</button>
   </div>
 </section>
 
@@ -341,11 +357,14 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 
 </div>
 
-<form id="contactForm">
+<form id="contactForm" aria-label="Formulario de contacto">
 
-<input type="text" id="nombre" placeholder="Nombre">
-<input type="email" id="email" placeholder="Email">
-<textarea id="mensaje" placeholder="Mensaje"></textarea>
+<label class="sr-only" for="nombre">Nombre</label>
+<input type="text" id="nombre" name="nombre" placeholder="Nombre" autocomplete="name" aria-required="true">
+<label class="sr-only" for="email">Email</label>
+<input type="email" id="email" name="email" placeholder="Email" autocomplete="email" aria-required="true">
+<label class="sr-only" for="mensaje">Mensaje</label>
+<textarea id="mensaje" name="mensaje" placeholder="Mensaje" rows="5" aria-required="true"></textarea>
 
 <button type="submit">Enviar mensaje</button>
 
@@ -354,6 +373,9 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 </div>
 
 </section>
+
+</main>
+
 <footer class="footer">
 
 <div class="footer-container">
@@ -374,7 +396,7 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 
 <div class="footer-col">
 <h4>Ubicación</h4>
-<a href="https://maps.app.goo.gl/977t1nHZUTDM17rS9?g_st=iw" target="_blank">
+<a href="https://maps.app.goo.gl/977t1nHZUTDM17rS9?g_st=iw" target="_blank" rel="noopener">
   <p>25 de Mayo 568 (O) Piso 7 G <br>Capital San Juan, Argentina</p>
   <p>(Coordinar Cita Previa)</p>
 </a>
@@ -382,7 +404,7 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 
 <div class="footer-col">
 <h4>Contacto</h4>
-<a href="https://wa.me/542646033020" target="_blank">
+<a href="https://wa.me/542646033020" target="_blank" rel="noopener">
   <p>WhatsApp</p>
 </a>
 <a href="mailto:consultoraodc@gmail.com">
@@ -395,18 +417,17 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 
 <div class="footer-bottom">
 <p>© 2026 ODC Consultora - Todos los derechos reservados</p>
-<p>Desarrollado por Ornella Mut</p>
+<p>Desarrollado por <a href="https://www.linkedin.com/in/ornella-mut-04757a274" target="_blank" rel="noopener">Ornella Mut<span class="sr-only"> en LinkedIn</span></a></p>
 </div>
 
 </footer>
 
 
-<script src="script.js"></script>
-<div id="modal" class="modal">
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-text" aria-hidden="true">
 
 <div class="modal-content">
 
-<span class="close" onclick="closeModal()">&times;</span>
+<button type="button" class="close" aria-label="Cerrar ventana" onclick="closeModal()">&times;</button>
 
 <h2 id="modal-title"></h2>
 
@@ -415,22 +436,132 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 </div>
 
 </div>
-<a href="https://wa.me/542646033020" class="whatsapp-btn" target="_blank">
-<i class="fa-brands fa-whatsapp"></i>
+<a href="https://wa.me/542646033020" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+<i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
 </a>
 
 
 <script>
 /* ================= MENU ================= */
 
+const navLinks = document.getElementById("navLinks");
+const menuToggle = document.querySelector(".menu-toggle");
+
+function setMenuState(open) {
+  navLinks.classList.toggle("active", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute(
+    "aria-label",
+    open ? "Cerrar menú de navegación" : "Abrir menú de navegación"
+  );
+}
+
 function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("active");
+  setMenuState(!navLinks.classList.contains("active"));
 }
 
 /* 🔥 cerrar menú al hacer click en una opción */
 document.querySelectorAll("#navLinks a").forEach(link => {
   link.addEventListener("click", function() {
-    document.getElementById("navLinks").classList.remove("active");
+    setMenuState(false);
+  });
+});
+
+/* cerrar menú con Escape y devolver el foco al botón */
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape" && navLinks.classList.contains("active")) {
+    setMenuState(false);
+    menuToggle.focus();
+  }
+});
+
+/* ================= MODAL ================= */
+
+const modal = document.getElementById("modal");
+let lastFocusedElement = null;
+
+function getFocusable(container) {
+  return Array.from(container.querySelectorAll(
+    'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )).filter(el => el.offsetParent !== null || el === document.activeElement);
+}
+
+function handleModalKeydown(e) {
+  if (e.key === "Escape") {
+    closeModal();
+    return;
+  }
+
+  if (e.key !== "Tab") return;
+
+  const focusable = getFocusable(modal);
+  if (!focusable.length) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
+}
+
+function openModal(service){
+
+const title = document.getElementById("modal-title");
+const text = document.getElementById("modal-text");
+
+if(service === "mineria"){
+title.innerText="Construcción y Sector Minero";
+text.innerText="Brindamos asesoramiento técnico y legal especializado para la industria minera y constructora. Gestionamos la viabilidad de proyectos, normativas locales y optimización de recursos, asegurando que su operación cumpla con los más altos estándares de la industria sanjuanina.";
+}
+
+if(service === "finanzas"){
+title.innerText="Proyectos de Inversión y Finanzas";
+text.innerText="Transformamos ideas en activos rentables. Realizamos análisis de factibilidad, evaluación de riesgos y diseño de estructuras financieras sólidas para captar capital y maximizar el retorno de su inversión.";
+}
+
+if(service === "contable"){
+title.innerText="Asesoramiento Contable y Empresarial";
+text.innerText="Mucho más que liquidación de impuestos. Ofrecemos una consultoría contable estratégica que organiza su estructura administrativa, garantiza el cumplimiento normativo y facilita la toma de decisiones informadas.";
+}
+
+lastFocusedElement = document.activeElement;
+modal.style.display = "flex";
+modal.setAttribute("aria-hidden", "false");
+document.body.style.overflow = "hidden";
+document.addEventListener("keydown", handleModalKeydown);
+modal.querySelector(".close").focus();
+
+}
+
+function closeModal(){
+modal.style.display = "none";
+modal.setAttribute("aria-hidden", "true");
+document.body.style.overflow = "";
+document.removeEventListener("keydown", handleModalKeydown);
+
+if (lastFocusedElement) {
+  lastFocusedElement.focus();
+  lastFocusedElement = null;
+}
+}
+
+modal.addEventListener("click", function(e){
+  if (e.target === modal) closeModal();
+});
+
+/* ================= SERVICE CARDS: activación por teclado ================= */
+
+document.querySelectorAll(".service-card").forEach(card => {
+  card.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+      e.preventDefault();
+      card.click();
+    }
   });
 });
 
@@ -445,6 +576,10 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
   if (!nombre || !email || !mensaje) {
     alert("Por favor completá todos los campos");
+    const firstEmpty = !nombre
+      ? document.getElementById("nombre")
+      : (!email ? document.getElementById("email") : document.getElementById("mensaje"));
+    firstEmpty.focus();
     return;
   }
 
@@ -454,13 +589,6 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
 
   window.open(url, "_blank");
-});
-
-/* ================= AOS ================= */
-
-AOS.init({
-  duration: 1000,
-  once: true
 });
 </script>
 </body>

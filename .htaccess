@@ -1,0 +1,37 @@
+# ============================================================
+# ODC Consultora - optimización de servidor (Apache)
+# Compresión HTTP + política de caché + MIME WebP
+# Todos los módulos están protegidos con IfModule por seguridad
+# ============================================================
+
+# --- MIME type para .webp (necesario en algunos Apache) ---
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
+
+# --- Compresión de texto (HTML, CSS, JS, SVG) ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css
+  AddOutputFilterByType DEFLATE text/javascript application/javascript
+  AddOutputFilterByType DEFLATE application/json application/xml image/svg+xml
+</IfModule>
+
+# --- Caché de navegador ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Imágenes: inmutables (los archivos optimizados no cambian)
+  ExpiresByType image/webp  "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png  "access plus 1 year"
+  ExpiresByType image/gif  "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+
+  # CSS y JS: 1 mes
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+
+  # HTML: siempre revalidar
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

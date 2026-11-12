@@ -1,31 +1,3 @@
-function openModal(service){
-
-const title = document.getElementById("modal-title");
-const text = document.getElementById("modal-text");
-const modal = document.getElementById("modal");
-
-if(service === "mineria"){
-title.innerText="Construcción y Sector Minero";
-text.innerText="Brindamos asesoramiento técnico y legal especializado para la industria minera y constructora. Gestionamos la viabilidad de proyectos, normativas locales y optimización de recursos, asegurando que su operación cumpla con los más altos estándares de la industria sanjuanina.";
-}
-
-if(service === "finanzas"){
-title.innerText="Proyectos de Inversión y Finanzas";
-text.innerText="Transformamos ideas en activos rentables. Realizamos análisis de factibilidad, evaluación de riesgos y diseño de estructuras financieras sólidas para captar capital y maximizar el retorno de su inversión.";
-}
-
-if(service === "contable"){
-title.innerText="Asesoramiento Contable y Empresarial";
-text.innerText="Mucho más que liquidación de impuestos. Ofrecemos una consultoría contable estratégica que organiza su estructura administrativa, garantiza el cumplimiento normativo y facilita la toma de decisiones informadas.";
-}
-
-modal.style.display="flex";
-}
-
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-
 document.addEventListener("DOMContentLoaded", function(){
 
 /* NAVBAR SCROLL */
@@ -57,10 +29,15 @@ function getMetrics(){
   return { realWidth, realGap, fullWidth: realWidth + realGap };
 }
 
-// CLONAR PARA LOOP
+// CLONAR PARA LOOP (los clones son solo visuales: se ocultan a lectores de pantalla)
 cards.forEach(card => {
   const firstClone = card.cloneNode(true);
   const lastClone = card.cloneNode(true);
+
+  [firstClone, lastClone].forEach(clone => {
+    clone.setAttribute("aria-hidden", "true");
+    clone.setAttribute("alt", "");
+  });
 
   track.appendChild(firstClone);
   track.insertBefore(lastClone, track.firstChild);
@@ -131,7 +108,8 @@ window.addEventListener("resize", ()=>{
 function smoothScroll(target, duration = 900){
 
 const element = document.querySelector(target);
-const targetPosition = element.offsetTop;
+const navbarOffset = 100; /* altura del navbar fijo + aire */
+const targetPosition = Math.max(0, element.offsetTop - navbarOffset);
 const startPosition = window.pageYOffset;
 const distance = targetPosition - startPosition;
 
@@ -142,7 +120,7 @@ function animation(currentTime){
 if(!startTime) startTime = currentTime;
 
 const timeElapsed = currentTime - startTime;
-const progress = Math.min(timeElapsed / duration, 5);
+const progress = Math.min(timeElapsed / duration, 1);
 
 window.scrollTo(0, startPosition + distance * progress);
 
@@ -157,7 +135,7 @@ requestAnimationFrame(animation);
 }
 
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach(anchor => {
 
 anchor.addEventListener("click", function(e){
 

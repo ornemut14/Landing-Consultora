@@ -19,8 +19,17 @@ max-width:1200px;
 margin:auto;
 }
 
+/* Header a todo el ancho: logo pegado al borde izquierdo y menú al derecho */
+.navbar .container{
+width:100%;
+max-width:none;
+min-height:86px;
+padding-left:clamp(20px, 3vw, 48px);
+padding-right:clamp(20px, 3vw, 48px);
+}
+
 .logo img {
-  height: 70px;
+  height: 54px;
   width: auto;
   display: block;
 }
@@ -28,15 +37,14 @@ margin:auto;
 position:fixed;
 top:0;
 width:100%;
-padding:18px 0;
+padding:0;
 transition:all 0.3s;
 z-index:1000;
-max-height: 100px;
 }
 
 .navbar.scrolled{
 background:#0c1a30;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
+box-shadow:0 8px 24px rgba(12,26,48,0.18), inset 0 -1px 0 rgba(255,255,255,0.06);
 }
 
 .navbar.scrolled a{
@@ -51,15 +59,34 @@ color:#1c2b4a;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding-bottom: 100px;
 color:white;
 }
 
 nav a{
-margin-left:25px;
 color:white;
 text-decoration:none;
 font-weight:500;
+font-size:15px;
+letter-spacing:0.4px;
+position:relative;
+transition:color 0.25s ease;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:100%;
+height:2px;
+background:#d4af37;
+transform:scaleX(0);
+transform-origin:left center;
+transition:transform 0.3s ease;
+}
+
+nav a:hover::after{
+transform:scaleX(1);
 }
 
 
@@ -72,7 +99,7 @@ font-weight:500;
 /* menú normal */
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 32px;
 }
 
 /* hamburguesa */
@@ -87,12 +114,12 @@ font-weight:500;
 @media (max-width: 768px){
 
   .menu-toggle {
-    display: block;
+    display: flex;
   }
 
    .nav-links{
     position:absolute;
-    top:70px;
+    top:100%;
     right:0;
     width:100%;
     background:#0c1a30;
@@ -118,7 +145,7 @@ font-weight:500;
 
 .hero{
 height:90vh;
-background-image:url("assets/hero-mineria.jpg");
+background-image:url("assets/hero-mineria-mobile.webp");
 background-size:cover;
 background-position:center;
 display:flex;
@@ -129,11 +156,17 @@ color:white;
 text-align:center;
 }
 
+@media (min-width: 769px){
+.hero{
+background-image:url("assets/hero-mineria.webp");
+}
+}
+
 .overlay{
 position:absolute;
 width:100%;
 height:100%;
-background:rgba(10,20,40,0.65);
+background:linear-gradient(180deg, rgba(10,20,40,0.68) 0%, rgba(10,20,40,0.6) 45%, rgba(10,20,40,0.72) 100%);
 top:0;
 left:0;
 }
@@ -147,7 +180,11 @@ z-index:2;
 
 .hero p{
 font-size:20px;
-margin-bottom:30px;
+margin-bottom:34px;
+font-weight:300;
+letter-spacing:0.3px;
+line-height:1.7;
+color:rgba(255,255,255,0.92);
 }
 
 .hero-buttons{
@@ -163,8 +200,8 @@ font-weight:600;
 text-decoration:none;
 cursor:pointer;
 font-size:15px;
+letter-spacing:0.3px;
 transition:all 0.3s ease;
-margin:10px;
 }
 
 
@@ -174,12 +211,12 @@ margin:10px;
 background:linear-gradient(135deg,#d4af37,#caa85c,#e6c76b);
 color:#1c2b4a;
 border:none;
-box-shadow:0 8px 20px rgba(0,0,0,0.2);
+box-shadow:0 8px 24px rgba(28,43,74,0.35);
 }
 
 .btn-gold:hover{
-transform:translateY(-3px);
-box-shadow:0 12px 28px rgba(0,0,0,0.3);
+transform:translateY(-2px);
+box-shadow:0 12px 28px rgba(28,43,74,0.42);
 background:linear-gradient(135deg,#e6c76b,#d4af37,#b9963a);
 }
 
@@ -188,13 +225,16 @@ background:linear-gradient(135deg,#e6c76b,#d4af37,#b9963a);
 
 .btn-outline{
 background:transparent;
-border:2px solid white;
+border:2px solid rgba(255,255,255,0.9);
 color:white;
+padding:12px 32px;
 }
 
 .btn-outline:hover{
 background:white;
+border-color:white;
 color:#1c2b4a;
+transform:translateY(-2px);
 }
 .about{
 padding:100px 0;
@@ -209,7 +249,28 @@ align-items:center;
 
 .about img{
 width:100%;
-border-radius:10px;
+height:auto;
+border-radius:12px;
+display:block;
+box-shadow:0 24px 48px rgba(28,43,74,0.12);
+}
+
+/* divisor dorado bajo títulos alineados a la izquierda */
+.about h2,
+.socio h2,
+.contact h2{
+margin-bottom:28px;
+}
+
+.about h2::after,
+.socio h2::after,
+.contact h2::after{
+content:"";
+width:64px;
+height:2px;
+background:#caa85c;
+display:block;
+margin:18px 0 0 0;
 }
 
 .socio {
@@ -225,38 +286,55 @@ border-radius:10px;
 
 .socio img {
   width: 100%;
-  border-radius: 10px;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 24px 48px rgba(28,43,74,0.12);
 }
 
 .btn-socio {
   display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
+  margin-top: 24px;
+  padding: 12px 28px;
   background-color:#0f172a;
   color: #fff;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.btn-socio:hover {
+  background-color:#1e3558;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(28,43,74,0.25);
 }
 
 .services{
-padding:90px 20px;
+padding:100px 20px;
 background:#0f172a;
 text-align:center;
 color:white;
 }
 
 .services h2{
-font-size:34px;
 margin-bottom:60px;
-letter-spacing:1px;
 }
-.services h2::after{
+
+/* divisor dorado bajo títulos centrados */
+.services h2::after,
+.values h2::after,
+.titulo-cultura::after,
+.empresas h2::after,
+.galeria-minera h2::after{
 content:"";
-width:120px;
-height:3px;
+width:64px;
+height:2px;
 background:#caa85c;
 display:block;
-margin:15px auto 0 auto;
+margin:18px auto 0 auto;
 }
 
 .services-grid{
@@ -270,34 +348,45 @@ margin:auto;
 .service-card{
 background:white;
 color:#333;
-border-radius:12px;
+border-radius:14px;
 overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
+box-shadow:0 10px 30px rgba(0,0,0,0.18);
 cursor:pointer;
 transition:all 0.35s ease;
 }
 
 .service-card:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 50px rgba(0,0,0,0.25);
+transform:translateY(-6px);
+box-shadow:0 18px 44px rgba(0,0,0,0.28);
 }
 
 .service-card img{
 width:100%;
 height:200px;
 object-fit:cover;
+transition:transform 0.6s ease;
+}
+
+.service-card:hover img{
+transform:scale(1.04);
+}
+
+/* foco de teclado sobre las cards (role="button") */
+.service-card:focus-visible{
+outline:2px solid #a8892d;
+outline-offset:3px;
 }
 
 .service-card h3{
 font-size:20px;
 margin:20px 0 10px 0;
-color:#bfa14a;
+color:#8a6d1f; /* dorado oscurecido: 4.90:1 sobre blanco (AA) */
 }
 
 .service-card p{
-padding:0 20px 25px 20px;
+padding:0 22px 26px 22px;
 font-size:15px;
-line-height:1.6;
+line-height:1.7;
 color:#555;
 }
 .vision-mision{
@@ -307,7 +396,6 @@ text-align:center;
 }
 
 .titulo-cultura{
-font-size:36px;
 color:#1c2b4a;
 margin-bottom:60px;
 }
@@ -322,15 +410,15 @@ margin:auto;
 
 .card-cultura{
 background:white;
-border-radius:16px;
+border-radius:14px;
 overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,0.08);
+box-shadow:0 15px 40px rgba(0,0,0,0.07);
 transition:0.3s;
 }
 
 .card-cultura:hover{
-transform:translateY(-8px);
-box-shadow:0 25px 50px rgba(0,0,0,0.15);
+transform:translateY(-6px);
+box-shadow:0 24px 50px rgba(0,0,0,0.12);
 }
 
 .icono-box{
@@ -365,7 +453,7 @@ color:#1e3558;
 .text p{
 font-size:15px;
 color:#555;
-line-height:1.6;
+line-height:1.7;
 }
 
 /* responsive */
@@ -382,25 +470,16 @@ grid-template-columns:1fr;
 
 
 .values{
-padding:90px 20px;
+padding:100px 20px;
 background:#f5f7fb;
 text-align:center;
+border-top:1px solid rgba(28,43,74,0.06);
 }
 
 .values h2{
-font-size:34px;
 color:#1c2b4a;
 margin-bottom:60px;
 position:relative;
-}
-
-.values h2::after{
-content:"";
-width:120px;
-height:3px;
-background:#caa85c;
-display:block;
-margin:15px auto 0 auto;
 }
 
 .values-container{
@@ -413,15 +492,15 @@ margin:auto;
 
 .value-item{
 background:white;
-padding:20px 15px;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+padding:28px 20px 32px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.07);
 transition:all 0.35s ease;
 }
 
 .value-item:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 45px rgba(0,0,0,0.15);
+transform:translateY(-6px);
+box-shadow:0 18px 40px rgba(0,0,0,0.12);
 }
 
 .value-icon{
@@ -435,11 +514,15 @@ justify-content:center;
 border-radius:50%;
 font-size:26px;
 margin:auto;
-margin-bottom:18px;
+margin-bottom:20px;
 }
 
-.value-item h4{
+/* h3 semántico con la apariencia original del h4 (Poppins, no Playfair) */
+.value-item h3{
+font-family:'Poppins',sans-serif;
 font-size:18px;
+font-weight:700;
+line-height:inherit;
 margin-bottom:10px;
 color:#1e3558;
 }
@@ -447,7 +530,7 @@ color:#1e3558;
 .value-item p{
 font-size:14px;
 color:#666;
-line-height:1.5;
+line-height:1.65;
 }
 .contact{
 background:#0f2745;
@@ -468,17 +551,66 @@ gap:15px;
 }
 
 input, textarea{
-padding:12px;
-border-radius:6px;
-border:none;
+padding:13px 16px;
+border-radius:8px;
+border:1px solid transparent;
+font-size:15px;
+color:#1e2a38;
+transition:border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+textarea{
+min-height:150px;
+resize:vertical;
+}
+
+input::placeholder,
+textarea::placeholder{
+color:rgba(30,42,56,0.7); /* 5.9:1 sobre blanco: el placeholder es texto visible (AA) */
+}
+
+input:focus,
+textarea:focus{
+outline:2px solid #a8892d;
+outline-offset:2px;
+border-color:#8a6d1f;
+box-shadow:none;
 }
 
 button{
 background:#d4a24c;
-padding:14px;
+padding:14px 28px;
 border:none;
-color:white;
-border-radius:6px;
+color:#1e3558; /* navy: 5.32:1 sobre dorado (AA) */
+border-radius:8px;
+font-size:15px;
+font-weight:600;
+letter-spacing:0.3px;
+cursor:pointer;
+transition:background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover{
+background:#bfa14a;
+transform:translateY(-1px);
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* reset de estilos nativos para botones de UI (hamburguesa y cerrar modal):
+   mantienen el mismo aspecto que tenían como div/span */
+.menu-toggle,
+.close{
+background:none;
+border:none;
+padding:0;
+font-family:inherit;
+}
+
+.menu-toggle:hover,
+.close:hover{
+background:none;
+transform:none;
+box-shadow:none;
 }
 
 .whatsapp-btn{
@@ -487,7 +619,7 @@ bottom:25px;
 right:25px;
 width:60px;
 height:60px;
-background:#25D366;
+background:#0f7a3d; /* verde más oscuro: 5.42:1 con el icono blanco (AA) */
 color:white;
 border-radius:50%;
 display:flex;
@@ -507,7 +639,8 @@ line-height:1;
 }
 
 .whatsapp-btn:hover{
-transform:scale(1.1);
+transform:scale(1.08);
+box-shadow:0 14px 30px rgba(0,0,0,0.35);
 }
 
 .modal{
@@ -526,7 +659,7 @@ z-index:1000;
 .modal-content{
 background:white;
 padding:40px;
-border-radius:10px;
+border-radius:14px;
 max-width:650px;
 width:90%;
 box-shadow:0 20px 60px rgba(0,0,0,0.4);
@@ -535,7 +668,7 @@ animation:modalFade 0.3s ease;
 
 .modal-content h2{
 margin-bottom:15px;
-color:#bfa14a;
+color:#8a6d1f; /* dorado oscurecido: 4.90:1 sobre blanco (AA) */
 }
 
 .modal-content p{
@@ -565,11 +698,17 @@ opacity:1;
 font-size:28px;
 cursor:pointer;
 float:right;
+line-height:1;
+transition:color 0.25s ease;
+}
+
+.close:hover{
+color:#8a6d1f; /* dorado accesible al pasar el mouse (AA) */
 }
 .footer{
 background:#0c1a30;
 color:white;
-padding:60px 20px 20px 20px;
+padding:64px 20px 24px 20px;
 }
 
 .footer-container{
@@ -598,13 +737,33 @@ list-style:none;
 padding:0;
 }
 
+.footer-col a{
+transition:color 0.25s ease;
+}
+
+.footer-col a:hover{
+color:#d4af37;
+}
+
 .footer-bottom{
 text-align:center;
-margin-top:40px;
+margin-top:44px;
 border-top:1px solid rgba(255,255,255,0.1);
-padding-top:20px;
+padding-top:24px;
 font-size:13px;
+letter-spacing:0.3px;
 color:#aaa;
+}
+
+.footer-bottom a{
+color:#d4af37;
+text-decoration:underline;
+text-underline-offset:2px;
+transition:color 0.25s ease;
+}
+
+.footer-bottom a:hover{
+color:#fff;
 }
 
 .galeria-minera{
@@ -632,7 +791,7 @@ color:#aaa;
 .carousel-wrapper{
   width: calc((var(--card-width) * 5) + (var(--card-gap) * 4));
   overflow:hidden;
-  padding:100px 0;
+  padding:72px 0 96px;
   margin:auto;
 }
 
@@ -668,6 +827,32 @@ color:#aaa;
   z-index:5;
 }
 
+/* flechas del carrusel */
+.carousel-btn{
+  width:46px;
+  height:46px;
+  padding:0;
+  border:none;
+  border-radius:50%;
+  background:#ffffff;
+  color:#1e3558;
+  font-size:16px;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  transition:all 0.3s ease;
+}
+
+.carousel-btn:hover{
+  background:#1e3558;
+  color:#d4af37;
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,0.22);
+}
+
 .empresas {
   padding: 80px 0;
   text-align: center;
@@ -675,7 +860,7 @@ color:#aaa;
 }
 
 .empresas h2 {
-  margin-bottom: 40px;
+  margin-bottom: 48px;
   color:white;
 }
 
@@ -688,6 +873,7 @@ color:#aaa;
 
 .logos-grid img {
   width: 100%;
+  height: auto;
   max-height: 80px;
   object-fit: contain;
   filter: grayscale(100%);
@@ -710,37 +896,47 @@ a {
 
 .menu-toggle{
   display:none;
-  font-size:26px;
+  width:44px;
+  height:44px;
   color:white;
   cursor:pointer;
-
-  position: relative;
-  top: -15px; /* 🔥 lo sube un poco */
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
 }
 
 /* links normales */
 .nav-links{
   display:flex;
-  gap:25px;
+  gap:32px;
 }
 
 /* 📱 MOBILE */
-@media (max-width: 768px){
+@media (max-width: 860px){
+
+  .navbar .container{
+    min-height:74px;
+  }
+
+  .logo img{
+    height:46px;
+  }
 
   .menu-toggle{
-    display:block;
+    display:flex;
   }
 
   .nav-links{
     position:absolute;
-    top:80px;
+    top:100%;
     right:0;
     width:100%;
     background:#0c1a30;
     flex-direction:column;
     align-items:center;
     gap:20px;
-    padding:20px 0;
+    padding:24px 0;
+    box-shadow:0 24px 48px rgba(0,0,0,0.25);
 
     display:none;
   }
@@ -769,7 +965,7 @@ a {
 
   .hero-buttons{
     flex-direction:column;
-    gap:10px;
+    gap:14px;
   }
 }
 @media (max-width: 900px){
@@ -777,6 +973,12 @@ a {
   .socio-grid{
     grid-template-columns:1fr;
     text-align:center;
+  }
+
+  .about h2::after,
+  .socio h2::after{
+    margin-left:auto;
+    margin-right:auto;
   }
 }
 @media (max-width: 576px){
@@ -823,7 +1025,7 @@ a {
 .carousel-wrapper{
   width: calc((var(--card-width) * 5) + (var(--card-gap) * 4));
   overflow:hidden;
-  padding:100px 0;
+  padding:72px 0 96px;
   margin:auto;
 }
 
@@ -897,5 +1099,70 @@ a {
 @media (max-width: 576px){
   .footer{
     text-align:center;
+  }
+}
+
+/* ================= DETALLES DE PRECISIÓN ================= */
+
+/* anclas: no quedar ocultas tras el navbar fijo */
+section[id]{
+  scroll-margin-top:100px;
+}
+
+/* ================= ACCESIBILIDAD ================= */
+
+/* enlace para saltar directamente al contenido */
+.skip-link{
+  position:absolute;
+  top:-80px;
+  left:16px;
+  z-index:2000;
+  background:#0c1a30;
+  color:#ffffff;
+  padding:12px 20px;
+  border-radius:0 0 8px 8px;
+  font-weight:600;
+  text-decoration:none;
+  transition:top 0.2s ease;
+}
+
+.skip-link:focus{
+  top:0;
+}
+
+/* contenido solo para lectores de pantalla */
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0, 0, 0, 0);
+  white-space:nowrap;
+  border:0;
+}
+
+/* foco de teclado consistente (dorado oscuro: ≥3:1 sobre fondos claros y oscuros) */
+a:focus-visible,
+button:focus-visible{
+  outline:2px solid #a8892d;
+  outline-offset:3px;
+}
+
+/* selección de texto con el dorado de marca */
+::selection{
+  background:#d4af37;
+  color:#1c2b4a;
+}
+
+/* respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration:0.01ms !important;
+    transition-duration:0.01ms !important;
+  }
+  html{
+    scroll-behavior:auto;
   }
 }
