@@ -10,28 +10,32 @@
 <meta name="description" content="Consultora Olguín Del Castillo: asesoramiento contable, financiero, legal y técnico para empresas y proyectos de inversión en San Juan, Argentina.">
 <link rel="icon" href="assets/favicon-96.jpg" type="image/jpeg">
 
-<!-- LCP: precarga del hero según resolución -->
-<link rel="preload" as="image" href="assets/hero-mineria.webp" media="(min-width:769px)" fetchpriority="high">
-<link rel="preload" as="image" href="assets/hero-mineria-mobile.webp" media="(max-width:768px)" fetchpriority="high">
+<!-- LCP: precarga del hero según resolución (AVIF con fallback WebP en CSS) -->
+<link rel="preload" as="image" type="image/avif" href="assets/hero-mineria.avif" media="(min-width:769px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" href="assets/hero-mineria-mobile-portrait.avif" media="(max-width:768px) and (orientation:portrait)" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" href="assets/hero-mineria-mobile.avif" media="(max-width:768px) and (orientation:landscape)" fetchpriority="high">
 
-<!-- Conexiones anticipadas a orígenes de terceros -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<!-- CSS crítico inline: evita la petición que bloqueaba el render.
+     Origen: style.css + estilos.css minificados con esbuild (styles.min.css).
+     Si editás esos archivos, regenerá este bloque con styles.min.css. -->
+<style>@font-face{font-family:Poppins;font-style:normal;font-weight:300;font-display:swap;src:url(assets/fonts/poppins-300.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/poppins-400.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/poppins-500.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/poppins-600.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/poppins-700.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Playfair Display;font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/playfair-display-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Playfair Display;font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/playfair-display-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}.icon{width:1em;height:1em;display:inline-block;vertical-align:-.125em;fill:currentColor;overflow:visible}body{color:#1e2a38}html{scroll-behavior:smooth}.container{width:90%;max-width:1200px;margin:auto}.navbar .container{width:100%;max-width:none;min-height:86px;padding-left:clamp(20px,3vw,48px);padding-right:clamp(20px,3vw,48px)}.logo img{height:54px;width:auto;display:block}.navbar{position:fixed;top:0;width:100%;padding:0;transition:all .3s;z-index:1000}.navbar.scrolled{background:#0c1a30;box-shadow:0 8px 24px #0c1a302e,inset 0 -1px #ffffff0f}.navbar.scrolled a{color:#fff}.navbar.scrolled .logo{color:#1c2b4a}.nav{display:flex;justify-content:space-between;align-items:center;color:#fff}nav a{color:#fff;text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.4px;position:relative;transition:color .25s ease}nav a:after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:2px;background:#d4af37;transform:scaleX(0);transform-origin:left center;transition:transform .3s ease}nav a:hover:after{transform:scaleX(1)}.menu-toggle{display:none;font-size:26px;color:#fff;cursor:pointer}@media(max-width:768px){.menu-toggle{display:flex}.nav-links{position:absolute;top:100%;right:0;width:100%;background:#0c1a30;flex-direction:column;align-items:center;gap:20px;padding:20px 0;display:none;transform:translateY(-20px);opacity:0;transition:.3s}.nav-links.active{display:flex;transform:translateY(0);opacity:1}}.hero{height:90vh;background-image:url(assets/hero-mineria-mobile.webp);background-image:image-set(url(assets/hero-mineria-mobile.avif) type("image/avif"),url(assets/hero-mineria-mobile.webp) type("image/webp"));background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;position:relative;color:#fff;text-align:center}@media(max-width:768px)and (orientation:portrait){.hero{background-image:url(assets/hero-mineria-mobile.webp);background-image:image-set(url(assets/hero-mineria-mobile-portrait.avif) type("image/avif"),url(assets/hero-mineria-mobile.webp) type("image/webp"))}}@media(min-width:769px){.hero{background-image:url(assets/hero-mineria.webp);background-image:image-set(url(assets/hero-mineria.avif) type("image/avif"),url(assets/hero-mineria.webp) type("image/webp"))}}.overlay{position:absolute;width:100%;height:100%;background:linear-gradient(180deg,#0a1428ad,#0a142899 45%,#0a1428b8);top:0;left:0}.hero-content{position:relative;max-width:800px;z-index:2}.hero p{font-size:20px;margin-bottom:34px;font-weight:300;letter-spacing:.3px;line-height:1.7;color:#ffffffeb}.hero-buttons{display:flex;justify-content:center;gap:20px}.btn{display:inline-block;padding:14px 34px;border-radius:50px;font-weight:600;text-decoration:none;cursor:pointer;font-size:15px;letter-spacing:.3px;transition:all .3s ease}.btn-gold{background:linear-gradient(135deg,#d4af37,#caa85c,#e6c76b);color:#1c2b4a;border:none;box-shadow:0 8px 24px #1c2b4a59}.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 28px #1c2b4a6b;background:linear-gradient(135deg,#e6c76b,#d4af37,#b9963a)}.btn-outline{background:transparent;border:2px solid rgba(255,255,255,.9);color:#fff;padding:12px 32px}.btn-outline:hover{background:#fff;border-color:#fff;color:#1c2b4a;transform:translateY(-2px)}.about{padding:100px 0}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.about img{width:100%;height:auto;border-radius:12px;display:block;box-shadow:0 24px 48px #1c2b4a1f}.about h2,.socio h2,.contact h2{margin-bottom:28px}.about h2:after,.socio h2:after,.contact h2:after{content:"";width:64px;height:2px;background:#caa85c;display:block;margin:18px 0 0}.socio{padding:100px 0}.socio-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.socio img{width:100%;height:auto;border-radius:12px;display:block;box-shadow:0 24px 48px #1c2b4a1f}.btn-socio{display:inline-block;margin-top:24px;padding:12px 28px;background-color:#0f172a;color:#fff;text-decoration:none;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:.3px;transition:all .3s ease}.btn-socio:hover{background-color:#1e3558;transform:translateY(-2px);box-shadow:0 10px 24px #1c2b4a40}.services{padding:100px 20px;background:#0f172a;text-align:center;color:#fff}.services h2{margin-bottom:60px}.services h2:after,.values h2:after,.titulo-cultura:after,.empresas h2:after,.galeria-minera h2:after{content:"";width:64px;height:2px;background:#caa85c;display:block;margin:18px auto 0}.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:35px;max-width:1200px;margin:auto}.service-card{background:#fff;color:#333;border-radius:14px;overflow:hidden;box-shadow:0 10px 30px #0000002e;cursor:pointer;transition:all .35s ease}.service-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px #00000047}.service-card img{width:100%;height:200px;object-fit:cover;transition:transform .6s ease}.service-card:hover img{transform:scale(1.04)}.service-card:focus-visible{outline:2px solid #a8892d;outline-offset:3px}.service-card h3{font-size:20px;margin:20px 0 10px;color:#8a6d1f}.service-card p{padding:0 22px 26px;font-size:15px;line-height:1.7;color:#555}.vision-mision{padding:100px 20px;background:#f5f7fb;text-align:center}.titulo-cultura{color:#1c2b4a;margin-bottom:60px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;max-width:1100px;margin:auto}.card-cultura{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 15px 40px #00000012;transition:.3s}.card-cultura:hover{transform:translateY(-6px);box-shadow:0 24px 50px #0000001f}.icono-box{height:120px;display:flex;align-items:center;justify-content:center;font-size:42px;color:#1e3558}.vision .icono-box{background:#d8d3f0}.mision .icono-box{background:#bfe4e3}.text{padding:35px}.text h3{font-size:24px;margin-bottom:15px;color:#1e3558}.text p{font-size:15px;color:#555;line-height:1.7}@media(max-width:900px){.grid{grid-template-columns:1fr}}.values{padding:100px 20px;background:#f5f7fb;text-align:center;border-top:1px solid rgba(28,43,74,.06)}.values h2{color:#1c2b4a;margin-bottom:60px;position:relative}.values-container{display:grid;grid-template-columns:repeat(5,1fr);gap:25px;max-width:1100px;margin:auto}.value-item{background:#fff;padding:28px 20px 32px;border-radius:14px;box-shadow:0 10px 30px #00000012;transition:all .35s ease}.value-item:hover{transform:translateY(-6px);box-shadow:0 18px 40px #0000001f}.value-icon{width:70px;height:70px;background:#1e3558;color:#d4af37;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:26px;margin:auto auto 20px}.value-item h3{font-family:Poppins,sans-serif;font-size:18px;font-weight:700;line-height:inherit;margin-bottom:10px;color:#1e3558}.value-item p{font-size:14px;color:#666;line-height:1.65}.contact{background:#0f2745;color:#fff;padding:100px 0}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}form{display:flex;flex-direction:column;gap:15px}input,textarea{padding:13px 16px;border-radius:8px;border:1px solid transparent;font-size:15px;color:#1e2a38;transition:border-color .25s ease,box-shadow .25s ease}textarea{min-height:150px;resize:vertical}input::placeholder,textarea::placeholder{color:#1e2a38b3}input:focus,textarea:focus{outline:2px solid #a8892d;outline-offset:2px;border-color:#8a6d1f;box-shadow:none}button{background:#d4a24c;padding:14px 28px;border:none;color:#1e3558;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:.3px;cursor:pointer;transition:background .25s ease,transform .25s ease,box-shadow .25s ease}button:hover{background:#bfa14a;transform:translateY(-1px);box-shadow:0 8px 20px #0003}.menu-toggle,.close{background:none;border:none;padding:0;font-family:inherit}.menu-toggle:hover,.close:hover{background:none;transform:none;box-shadow:none}.whatsapp-btn{position:fixed;bottom:25px;right:25px;width:60px;height:60px;background:#0f7a3d;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 10px 25px #0000004d;z-index:999;transition:.3s;text-decoration:none;line-height:0}.whatsapp-btn .icon{line-height:1}.whatsapp-btn:hover{transform:scale(1.08);box-shadow:0 14px 30px #00000059}.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000000bf;justify-content:center;align-items:center;z-index:1000}.modal-content{background:#fff;padding:40px;border-radius:14px;max-width:650px;width:90%;box-shadow:0 20px 60px #0006;animation:modalFade .3s ease}.modal-content h2{margin-bottom:15px;color:#8a6d1f}.modal-content p{line-height:1.7;color:#444}.close{font-size:28px;font-weight:700;float:right;cursor:pointer}@keyframes modalFade{0%{transform:translateY(-40px);opacity:0}to{transform:translateY(0);opacity:1}}.close{font-size:28px;cursor:pointer;float:right;line-height:1;transition:color .25s ease}.close:hover{color:#8a6d1f}.footer{background:#0c1a30;color:#fff;padding:64px 20px 24px}.footer-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;max-width:1200px;margin:auto}.footer-col h3,.footer-col h4{color:#d4af37;margin-bottom:15px}.footer-col p,.footer-col li{font-size:14px;color:#ccc;margin-bottom:8px}.footer-col ul{list-style:none;padding:0}.footer-col a{transition:color .25s ease}.footer-col a:hover{color:#d4af37}.footer-bottom{text-align:center;margin-top:44px;border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size:13px;letter-spacing:.3px;color:#aaa}.footer-bottom a{color:#d4af37;text-decoration:underline;text-underline-offset:2px;transition:color .25s ease}.footer-bottom a:hover{color:#fff}.galeria-minera{padding:100px 20px;background:#f5f7fb;text-align:center}:root{--card-width:170px;--card-height:260px;--card-gap:25px}.carousel{display:flex;align-items:center;justify-content:center;gap:20px;width:100%}.carousel-wrapper{width:calc((var(--card-width) * 5) + (var(--card-gap) * 4));overflow:hidden;padding:72px 0 96px;margin:auto}.carousel-track{display:flex;align-items:center;gap:var(--card-gap);transition:transform .5s ease-in-out;width:max-content}.card{width:var(--card-width);height:300px;object-fit:cover;border-radius:20px;opacity:.5;transform:scale(.85);transition:opacity .4s ease,transform .4s ease;flex-shrink:0}.card.active{opacity:1;transform:scale(1.25);box-shadow:0 20px 40px #00000040;z-index:5}.carousel-btn{width:46px;height:46px;padding:0;border:none;border-radius:50%;background:#fff;color:#1e3558;font-size:16px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px #00000026;transition:all .3s ease}.carousel-btn:hover{background:#1e3558;color:#d4af37;transform:translateY(-2px);box-shadow:0 10px 24px #00000038}.empresas{padding:80px 0;text-align:center;background:#0f172a}.empresas h2{margin-bottom:48px;color:#fff}.logos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:30px;align-items:center}.logos-grid img{width:100%;height:auto;max-height:80px;object-fit:contain;filter:grayscale(100%);opacity:.7;transition:.3s}.logos-grid img:hover{filter:grayscale(0%);opacity:1;transform:scale(1.05)}a{text-decoration:none;color:inherit}.menu-toggle{display:none;width:44px;height:44px;color:#fff;cursor:pointer;align-items:center;justify-content:center;font-size:22px}.nav-links{display:flex;gap:32px}@media(max-width:860px){.navbar .container{min-height:74px}.logo img{height:46px}.menu-toggle{display:flex}.nav-links{position:absolute;top:100%;right:0;width:100%;background:#0c1a30;flex-direction:column;align-items:center;gap:20px;padding:24px 0;box-shadow:0 24px 48px #00000040;display:none}.nav-links.active{display:flex}.nav-links a{margin:0}}@media(max-width:768px){.hero{height:auto;padding:120px 20px 80px}.hero h1{font-size:32px}.hero p{font-size:16px}.hero-buttons{flex-direction:column;gap:14px}}@media(max-width:900px){.about-grid,.socio-grid{grid-template-columns:1fr;text-align:center}.about h2:after,.socio h2:after{margin-left:auto;margin-right:auto}}@media(max-width:576px){.services{padding:60px 15px}}@media(max-width:992px){.values-container{grid-template-columns:repeat(3,1fr)}}@media(max-width:576px){.values-container{grid-template-columns:repeat(2,1fr)}}@media(max-width:389px){.values-container{grid-template-columns:1fr}}@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}@media(max-width:1024px){:root{--card-width:140px;--card-gap:20px}.carousel-wrapper{width:calc((var(--card-width) * 3) + (var(--card-gap) * 2));padding:80px 0}.card.active{transform:scale(1.15)}}@media(max-width:600px){:root{--card-width:120px;--card-gap:15px}.carousel-wrapper{width:calc((var(--card-width) * 3) + (var(--card-gap) * 2));padding:80px 0}.card{height:220px}.card.active{transform:scale(1.15)}}@media(max-width:576px){.footer{text-align:center}}section[id]{scroll-margin-top:100px}.skip-link{position:absolute;top:-80px;left:16px;z-index:2000;background:#0c1a30;color:#fff;padding:12px 20px;border-radius:0 0 8px 8px;font-weight:600;text-decoration:none;transition:top .2s ease}.skip-link:focus{top:0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}a:focus-visible,button:focus-visible{outline:2px solid #a8892d;outline-offset:3px}::selection{background:#d4af37;color:#1c2b4a}@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}body{font-family:Montserrat,sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1,h2,h3{font-family:Playfair Display,serif;margin-bottom:15px}h1{font-size:clamp(28px,5vw,48px);font-weight:700;line-height:1.15}h2{font-size:clamp(22px,4vw,36px);font-weight:600;line-height:1.25}h3{font-size:clamp(18px,3vw,24px);font-weight:600;line-height:1.3}p{font-size:clamp(14px,2vw,16px)}p+p{margin-top:.9em}</style>
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="estilos.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome: carga no bloqueante con fallback -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
-
-<script src="script.js" defer></script>
+<script src="script.js?v=20261117" defer></script>
 </head>
 
 <body>
+<!-- Sprite de iconos: mismos trazos que Font Awesome 6.5 (sin cargar su CSS ni sus fuentes) -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden">
+  <symbol id="i-bars" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></symbol>
+  <symbol id="i-lightbulb" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 512 512"><path d="M156.6 384.9L125.7 354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9 7-20.5 11.8-33.8L24 288c-8.6 0-16.6-4.6-20.9-12.1s-4.2-16.7 .2-24.1l52.5-88.5c13-21.9 36.5-35.3 61.9-35.3l82.3 0c2.4-4 4.8-7.7 7.2-11.3C289.1-4.1 411.1-8.1 483.9 5.3c11.6 2.1 20.6 11.2 22.8 22.8c13.4 72.9 9.3 194.8-111.4 276.7c-3.5 2.4-7.3 4.8-11.3 7.2v82.3c0 25.4-13.4 49-35.3 61.9l-88.5 52.5c-7.4 4.4-16.6 4.5-24.1 .2s-12.1-12.2-12.1-20.9V380.8c-14.1 4.9-26.4 8.9-35.7 11.9c-11.2 3.6-23.4 .5-31.8-7.8zM384 168a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></symbol>
+  <symbol id="i-award" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0L228 17.2c6 3.9 13 5.8 20.1 5.4l21.3-1.3c13.2-.8 25.6 6.4 31.5 18.2l9.6 19.1c3.2 6.4 8.4 11.5 14.7 14.7L344.5 83c11.8 5.9 19 18.3 18.2 31.5l-1.3 21.3c-.4 7.1 1.5 14.2 5.4 20.1l11.8 17.8c7.3 11 7.3 25.4 0 36.4L366.8 228c-3.9 6-5.8 13-5.4 20.1l1.3 21.3c.8 13.2-6.4 25.6-18.2 31.5l-19.1 9.6c-6.4 3.2-11.5 8.4-14.7 14.7L301 344.5c-5.9 11.8-18.3 19-31.5 18.2l-21.3-1.3c-7.1-.4-14.2 1.5-20.1 5.4l-17.8 11.8c-11 7.3-25.4 7.3-36.4 0L156 366.8c-6-3.9-13-5.8-20.1-5.4l-21.3 1.3c-13.2 .8-25.6-6.4-31.5-18.2l-9.6-19.1c-3.2-6.4-8.4-11.5-14.7-14.7L39.5 301c-11.8-5.9-19-18.3-18.2-31.5l1.3-21.3c.4-7.1-1.5-14.2-5.4-20.1L5.5 210.2c-7.3-11-7.3-25.4 0-36.4L17.2 156c3.9-6 5.8-13 5.4-20.1l-1.3-21.3c-.8-13.2 6.4-25.6 18.2-31.5l19.1-9.6C65 70.2 70.2 65 73.4 58.6L83 39.5c5.9-11.8 18.3-19 31.5-18.2l21.3 1.3c7.1 .4 14.2-1.5 20.1-5.4L173.8 5.5zM272 192a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM1.3 441.8L44.4 339.3c.2 .1 .3 .2 .4 .4l9.6 19.1c11.7 23.2 36 37.3 62 35.8l21.3-1.3c.2 0 .5 0 .7 .2l17.8 11.8c5.1 3.3 10.5 5.9 16.1 7.7l-37.6 89.3c-2.3 5.5-7.4 9.2-13.3 9.7s-11.6-2.2-14.8-7.2L74.4 455.5l-56.1 8.3c-5.7 .8-11.4-1.5-15-6s-4.3-10.7-2.1-16zm248 60.4L211.7 413c5.6-1.8 11-4.3 16.1-7.7l17.8-11.8c.2-.1 .4-.2 .7-.2l21.3 1.3c26 1.5 50.3-12.6 62-35.8l9.6-19.1c.1-.2 .2-.3 .4-.4l43.2 102.5c2.2 5.3 1.4 11.4-2.1 16s-9.3 6.9-15 6l-56.1-8.3-32.2 49.2c-3.2 5-8.9 7.7-14.8 7.2s-11-4.3-13.3-9.7z"/></symbol>
+  <symbol id="i-shield-halved" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/></symbol>
+  <symbol id="i-handshake" viewBox="0 0 640 512"><path d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L512 316.8V128h-.7l-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48V352h28.2l91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123zM16 128c-8.8 0-16 7.2-16 16V352c0 17.7 14.3 32 32 32H64c17.7 0 32-14.3 32-32V128H16zM48 320a16 16 0 1 1 0 32 16 16 0 1 1 0-32zM544 128V352c0 17.7 14.3 32 32 32h32c17.7 0 32-14.3 32-32V144c0-8.8-7.2-16-16-16H544zm32 208a16 16 0 1 1 32 0 16 16 0 1 1 -32 0z"/></symbol>
+  <symbol id="i-chess" viewBox="0 0 512 512"><path d="M144 16c0-8.8-7.2-16-16-16s-16 7.2-16 16V32H96c-8.8 0-16 7.2-16 16s7.2 16 16 16h16V96H60.2C49.1 96 40 105.1 40 116.2c0 2.5 .5 4.9 1.3 7.3L73.8 208H72c-13.3 0-24 10.7-24 24s10.7 24 24 24h4L60 384H196L180 256h4c13.3 0 24-10.7 24-24s-10.7-24-24-24h-1.8l32.5-84.5c.9-2.3 1.3-4.8 1.3-7.3c0-11.2-9.1-20.2-20.2-20.2H144V64h16c8.8 0 16-7.2 16-16s-7.2-16-16-16H144V16zM48 416L4.8 473.6C1.7 477.8 0 482.8 0 488c0 13.3 10.7 24 24 24H232c13.3 0 24-10.7 24-24c0-5.2-1.7-10.2-4.8-14.4L208 416H48zm288 0l-43.2 57.6c-3.1 4.2-4.8 9.2-4.8 14.4c0 13.3 10.7 24 24 24H488c13.3 0 24-10.7 24-24c0-5.2-1.7-10.2-4.8-14.4L464 416H336zM304 208v51.9c0 7.8 2.8 15.3 8 21.1L339.2 312 337 384H462.5l-3.3-72 28.3-30.8c5.4-5.9 8.5-13.6 8.5-21.7V208c0-8.8-7.2-16-16-16H464c-8.8 0-16 7.2-16 16v16H424V208c0-8.8-7.2-16-16-16H392c-8.8 0-16 7.2-16 16v16H352V208c0-8.8-7.2-16-16-16H320c-8.8 0-16 7.2-16 16zm80 96c0-8.8 7.2-16 16-16s16 7.2 16 16v32H384V304z"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></symbol>
+</svg>
+
 <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
 <header class="navbar">
@@ -40,7 +44,7 @@
 
     <!-- LOGO -->
     <div class="logo">
-      <img src="assets/logo.webp" alt="Logotipo de ODC Consultora" width="506" height="140">
+      <img src="assets/logo.webp" srcset="assets/logo-260.webp 260w, assets/logo.webp 506w" sizes="(max-width:860px) 166px, 195px" alt="Logotipo de ODC Consultora" width="506" height="140">
     </div>
 
     <!-- MENÚ -->
@@ -54,7 +58,7 @@
 
     <!-- HAMBURGUESA -->
     <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinks" onclick="toggleMenu()">
-      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bars"></use></svg>
     </button>
 
   </div>
@@ -104,7 +108,7 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 
 </div>
 
-<img src="assets/equipo-consultora.webp" alt="Equipo de Consultora Olguín Del Castillo" width="1000" height="634" loading="lazy" decoding="async">
+<img src="assets/equipo-consultora.webp" srcset="assets/equipo-consultora-560.webp 560w, assets/equipo-consultora-800.webp 800w, assets/equipo-consultora.webp 1000w" sizes="(max-width:900px) 90vw, 560px" alt="Equipo de Consultora Olguín Del Castillo" width="1000" height="634" loading="lazy" decoding="async">
 
 </div>
 
@@ -114,7 +118,7 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 
   <div class="container socio-grid">
 
-    <img src="assets/socio-estrategico.webp" alt="Logotipo de Latitud Sur, socio estratégico de ODC Consultora" width="1150" height="924" loading="lazy" decoding="async">
+    <img src="assets/socio-estrategico.webp" srcset="assets/socio-estrategico-480.webp 480w, assets/socio-estrategico-650.webp 650w, assets/socio-estrategico-900.webp 900w, assets/socio-estrategico.webp 1150w" sizes="(max-width:900px) 90vw, 560px" alt="Logotipo de Latitud Sur, socio estratégico de ODC Consultora" width="1150" height="924" loading="lazy" decoding="async">
 
     <div>
       <h2>Nuestro Socio Estratégico</h2>
@@ -142,7 +146,7 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 
 <div class="service-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal" onclick="openModal('mineria')">
 
-<img src="assets/mineria-servicio.webp" alt="" width="760" height="508" loading="lazy" decoding="async">
+<img src="assets/mineria-servicio.webp" srcset="assets/mineria-servicio-380.webp 380w, assets/mineria-servicio.webp 760w" sizes="(max-width:900px) 90vw, 380px" alt="" width="760" height="508" loading="lazy" decoding="async">
 
 <h3>Industria y Proyectos</h3>
 
@@ -152,7 +156,7 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 
 <div class="service-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal" onclick="openModal('finanzas')">
 
-<img src="assets/finanzas-servicio.webp" alt="" width="760" height="416" loading="lazy" decoding="async">
+<img src="assets/finanzas-servicio.webp" srcset="assets/finanzas-servicio-380.webp 380w, assets/finanzas-servicio.webp 760w" sizes="(max-width:900px) 90vw, 380px" alt="" width="760" height="416" loading="lazy" decoding="async">
 
 <h3>Finanzas y Estrategia</h3>
 
@@ -162,7 +166,7 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 
 <div class="service-card" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="modal" onclick="openModal('contable')">
 
-<img src="assets/legal-servicio.webp" alt="" width="760" height="364" loading="lazy" decoding="async">
+<img src="assets/legal-servicio.webp" srcset="assets/legal-servicio-380.webp 380w, assets/legal-servicio.webp 760w" sizes="(max-width:900px) 90vw, 380px" alt="" width="760" height="364" loading="lazy" decoding="async">
 
 <h3>Corporativo y Contable</h3>
 
@@ -183,7 +187,7 @@ Entendemos que el éxito de un proyecto de inversión no depende de un solo fact
 <div class="card-cultura vision">
 
 <div class="icono-box">
-<i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-lightbulb"></use></svg>
 </div>
 
 <div class="text">
@@ -206,7 +210,7 @@ adelantarnos a los desafíos de un mercado global en constante evolución.
 <div class="card-cultura mision">
 
 <div class="icono-box">
-<i class="fa-solid fa-rocket" aria-hidden="true"></i>
+<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-rocket"></use></svg>
 </div>
 
 <div class="text">
@@ -239,7 +243,7 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 <div class="value-item">
 
 <div class="value-icon">
-<i class="fa-solid fa-award" aria-hidden="true"></i>
+<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-award"></use></svg>
 </div>
 
 <h3>Excelencia</h3>
@@ -252,7 +256,7 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 <div class="value-item">
 
 <div class="value-icon">
-<i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield-halved"></use></svg>
 </div>
 
 <h3>Integridad y Transparencia</h3>
@@ -265,7 +269,7 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 <div class="value-item">
 
 <div class="value-icon">
-<i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-lightbulb"></use></svg>
 </div>
 
 <h3>Visión Estrategica</h3>
@@ -278,7 +282,7 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 <div class="value-item">
 
 <div class="value-icon">
-<i class="fa-solid fa-handshake" aria-hidden="true"></i>
+<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-handshake"></use></svg>
 </div>
 
 <h3>Compromiso</h3>
@@ -291,7 +295,7 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 <div class="value-item">
 
 <div class="value-icon">
-<i class="fa-solid fa-chess" aria-hidden="true"></i>
+<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chess"></use></svg>
 </div>
 
 <h3>Innovacion en soluciones</h3>
@@ -332,11 +336,11 @@ la innovación y el compromiso con los resultados de nuestros clientes.
     <button class="carousel-btn prev" type="button" aria-label="Imagen anterior">&#10094;</button>
     <div class="carousel-wrapper">
       <div class="carousel-track" id="track">
-        <img src="assets/mina1.webp" alt="Proyecto minero en San Juan, fotografía 1 de 5" class="card" width="440" height="440" loading="lazy" decoding="async">
-        <img src="assets/mina2.webp" alt="Proyecto minero en San Juan, fotografía 2 de 5" class="card" width="440" height="733" loading="lazy" decoding="async">
-        <img src="assets/mina3.webp" alt="Proyecto minero en San Juan, fotografía 3 de 5" class="card" width="440" height="662" loading="lazy" decoding="async">
-        <img src="assets/mina4.webp" alt="Proyecto minero en San Juan, fotografía 4 de 5" class="card" width="440" height="561" loading="lazy" decoding="async">
-        <img src="assets/mina5.webp" alt="Proyecto minero en San Juan, fotografía 5 de 5" class="card" width="440" height="781" loading="lazy" decoding="async">
+        <img src="assets/mina1.webp" srcset="assets/mina1-220.webp 220w, assets/mina1.webp 440w" sizes="(max-width:600px) 120px, (max-width:1024px) 140px, 170px" alt="Proyecto minero en San Juan, fotografía 1 de 5" class="card" width="440" height="440" loading="lazy" decoding="async">
+        <img src="assets/mina2.webp" srcset="assets/mina2-220.webp 220w, assets/mina2.webp 440w" sizes="(max-width:600px) 120px, (max-width:1024px) 140px, 170px" alt="Proyecto minero en San Juan, fotografía 2 de 5" class="card" width="440" height="733" loading="lazy" decoding="async">
+        <img src="assets/mina3.webp" srcset="assets/mina3-220.webp 220w, assets/mina3.webp 440w" sizes="(max-width:600px) 120px, (max-width:1024px) 140px, 170px" alt="Proyecto minero en San Juan, fotografía 3 de 5" class="card" width="440" height="662" loading="lazy" decoding="async">
+        <img src="assets/mina4.webp" srcset="assets/mina4-220.webp 220w, assets/mina4.webp 440w" sizes="(max-width:600px) 120px, (max-width:1024px) 140px, 170px" alt="Proyecto minero en San Juan, fotografía 4 de 5" class="card" width="440" height="561" loading="lazy" decoding="async">
+        <img src="assets/mina5.webp" srcset="assets/mina5-220.webp 220w, assets/mina5.webp 440w" sizes="(max-width:600px) 120px, (max-width:1024px) 140px, 170px" alt="Proyecto minero en San Juan, fotografía 5 de 5" class="card" width="440" height="781" loading="lazy" decoding="async">
       </div>
     </div>
     <button class="carousel-btn next" type="button" aria-label="Siguiente imagen">&#10095;</button>
@@ -437,7 +441,7 @@ la innovación y el compromiso con los resultados de nuestros clientes.
 
 </div>
 <a href="https://wa.me/542646033020" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-<i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-whatsapp"></use></svg>
 </a>
 
 

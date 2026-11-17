@@ -1,0 +1,41 @@
+# ============================================================
+# ODC Consultora - archivos que no deben versionarse ni publicarse
+# El sitio en producción solo necesita:
+#   index.html, socio.html, socio.min.css, script.js, .htaccess y assets/
+# ============================================================
+
+# --- Dependencias ---
+# (si en el futuro se agrega un package.json para build, ese sí debe versionarse)
+node_modules/
+
+# --- Herramientas de desarrollo, auditoría y OCR (no son parte del sitio) ---
+axe-audit.js
+contrast-probe.js
+h3-probe.js
+ocr-logos.js
+ocr-logos2.js
+optimize-images.js
+*.traineddata
+
+# --- Temporales de trabajo ---
+.tmp-*
+test-*.html
+*.zip
+
+# --- Copias y respaldos ---
+* - copia.*
+*.bak
+*.orig
+*~
+
+# --- Sistema operativo y editores ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# --- Originales de imagen que no se publican ---
+# (fondo-socio-original.avif tiene marcas de agua de Unsplash;
+#  los .jpg/.png de origen quedaron reemplazados por .webp/.avif)
+assets/fondo-socio-original.avif

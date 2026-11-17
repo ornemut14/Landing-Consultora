@@ -1,9 +1,78 @@
+/* ================= FUENTES AUTOALOJADAS ================= */
+/* Mismos archivos woff2 que servía Google Fonts (subset latin), ahora locales:
+   elimina la hoja de estilos externa que bloqueaba el renderizado. */
+@font-face{
+  font-family:'Poppins';
+  font-style:normal;
+  font-weight:300;
+  font-display:swap;
+  src:url('assets/fonts/poppins-300.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Poppins';
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+  src:url('assets/fonts/poppins-400.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Poppins';
+  font-style:normal;
+  font-weight:500;
+  font-display:swap;
+  src:url('assets/fonts/poppins-500.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Poppins';
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  src:url('assets/fonts/poppins-600.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Poppins';
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+  src:url('assets/fonts/poppins-700.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Playfair Display';
+  font-style:normal;
+  font-weight:600;
+  font-display:swap;
+  src:url('assets/fonts/playfair-display-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Playfair Display';
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+  src:url('assets/fonts/playfair-display-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+}
+
+/* Iconos SVG inline (mismos trazos que Font Awesome, sin fuente externa) */
+.icon{
+width:1em;
+height:1em;
+display:inline-block;
+vertical-align:-0.125em;
+fill:currentColor;
+overflow:visible;
 }
 
 body{
@@ -90,12 +159,6 @@ transform:scaleX(1);
 }
 
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 /* menú normal */
 .nav-links {
   display: flex;
@@ -146,6 +209,10 @@ transform:scaleX(1);
 .hero{
 height:90vh;
 background-image:url("assets/hero-mineria-mobile.webp");
+background-image:image-set(
+  url("assets/hero-mineria-mobile.avif") type("image/avif"),
+  url("assets/hero-mineria-mobile.webp") type("image/webp")
+);
 background-size:cover;
 background-position:center;
 display:flex;
@@ -156,9 +223,25 @@ color:white;
 text-align:center;
 }
 
+@media (max-width: 768px) and (orientation: portrait){
+/* Recorte central 1:1: contiene exactamente la zona visible con cover,
+   así el móvil vertical descarga menos píxeles sin cambiar la composición. */
+.hero{
+background-image:url("assets/hero-mineria-mobile.webp");
+background-image:image-set(
+  url("assets/hero-mineria-mobile-portrait.avif") type("image/avif"),
+  url("assets/hero-mineria-mobile.webp") type("image/webp")
+);
+}
+}
+
 @media (min-width: 769px){
 .hero{
 background-image:url("assets/hero-mineria.webp");
+background-image:image-set(
+  url("assets/hero-mineria.avif") type("image/avif"),
+  url("assets/hero-mineria.webp") type("image/webp")
+);
 }
 }
 
@@ -634,7 +717,7 @@ text-decoration:none; /* quita la línea */
 line-height:0; /* elimina espacio del icono */
 }
 
-.whatsapp-btn i{
+.whatsapp-btn .icon{
 line-height:1;
 }
 
@@ -814,7 +897,7 @@ color:#fff;
   opacity:0.5;
   transform:scale(0.85);
 
-  transition:all 0.4s ease;
+  transition:opacity 0.4s ease, transform 0.4s ease;
   flex-shrink:0;
 }
 
@@ -997,64 +1080,18 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+/* Por debajo de 390 px dos columnas no entran sin desbordar el viewport
+   (el ancho mínimo de "Transparencia" fuerza las pistas de la grilla).
+   Se apila en una columna: mismas tarjetas, mismo estilo. */
+@media (max-width: 389px){
+  .values-container{
+    grid-template-columns: 1fr;
+  }
+}
 @media (max-width: 768px){
   .contact-grid{
     grid-template-columns:1fr;
   }
-}
-
-
-
-/* variables */
-:root{
-  --card-width:170px;
-  --card-height:260px;
-  --card-gap:25px;
-}
-
-/* ================= BASE ================= */
-
-.carousel{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:20px;
-  width:100%;
-}
-
-.carousel-wrapper{
-  width: calc((var(--card-width) * 5) + (var(--card-gap) * 4));
-  overflow:hidden;
-  padding:72px 0 96px;
-  margin:auto;
-}
-
-.carousel-track{
-  display:flex;
-  align-items:center;
-  gap:var(--card-gap);
-  transition:transform 0.5s ease-in-out;
-  width:max-content;
-}
-
-.card{
-  width:var(--card-width);
-  height:300px;
-  object-fit:cover;
-  border-radius:20px;
-
-  opacity:0.5;
-  transform:scale(0.85);
-
-  transition:all 0.4s ease;
-  flex-shrink:0;
-}
-
-.card.active{
-  opacity:1;
-  transform:scale(1.25);
-  box-shadow:0 20px 40px rgba(0,0,0,0.25);
-  z-index:5;
 }
 
 /* ================= TABLET ================= */

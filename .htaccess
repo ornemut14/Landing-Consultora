@@ -1,15 +1,24 @@
 # ============================================================
 # ODC Consultora - optimización de servidor (Apache)
-# Compresión HTTP + política de caché + MIME WebP
+# Compresión HTTP + política de caché + MIME modernos
 # Todos los módulos están protegidos con IfModule por seguridad
 # ============================================================
 
-# --- MIME type para .webp (necesario en algunos Apache) ---
+# --- MIME types (necesarios en algunos Apache) ---
 <IfModule mod_mime.c>
   AddType image/webp .webp
+  AddType image/avif .avif
+  AddType font/woff2 .woff2
 </IfModule>
 
-# --- Compresión de texto (HTML, CSS, JS, SVG) ---
+# --- Compresión Brotli (si el hosting la tiene disponible) ---
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css
+  AddOutputFilterByType BROTLI_COMPRESS text/javascript application/javascript
+  AddOutputFilterByType BROTLI_COMPRESS application/json application/xml image/svg+xml
+</IfModule>
+
+# --- Compresión gzip / deflate ---
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/css
   AddOutputFilterByType DEFLATE text/javascript application/javascript
@@ -20,12 +29,14 @@
 <IfModule mod_expires.c>
   ExpiresActive On
 
-  # Imágenes: inmutables (los archivos optimizados no cambian)
+  # Imágenes y fuentes: inmutables (los archivos optimizados no cambian)
   ExpiresByType image/webp  "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/png  "access plus 1 year"
-  ExpiresByType image/gif  "access plus 1 year"
+  ExpiresByType image/avif  "access plus 1 year"
+  ExpiresByType image/jpeg  "access plus 1 year"
+  ExpiresByType image/png   "access plus 1 year"
+  ExpiresByType image/gif   "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2  "access plus 1 year"
 
   # CSS y JS: 1 mes
   ExpiresByType text/css "access plus 1 month"
@@ -34,4 +45,32 @@
 
   # HTML: siempre revalidar
   ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# --- Archivos que no forman parte del sitio público ---
+# Herramientas de desarrollo/auditoría, datos OCR y el original de imagen
+# con marcas de agua. Devuelven 404 aunque se hayan subido por error.
+# No se incluyen aquí los .jpg/.png de origen porque la versión publicada
+# anterior del sitio todavía los referencia.
+<IfModule mod_alias.c>
+  RedirectMatch 404 ^/(axe-audit|contrast-probe|h3-probe|ocr-logos2?|optimize-images)\.js$
+  RedirectMatch 404 ^/assets/fondo-socio-original\.avif$
+  RedirectMatch 404 \.traineddata$
+</IfModule>
+
+# --- Cache-Control explícito (refuerza lo anterior) ---
+<IfModule mod_headers.c>
+  # Sin "immutable": si se reemplaza una imagen manteniendo el nombre,
+  # el navegador debe poder revalidarla. Con immutable quedaría vieja 1 año.
+  <FilesMatch "\.(webp|avif|jpe?g|png|gif|svg|woff2)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  # Evita que proxies sirvan una versión comprimida a clientes que no la aceptan
+  Header append Vary Accept-Encoding
 </IfModule>

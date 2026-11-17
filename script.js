@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 /* NAVBAR SCROLL */
 
-window.addEventListener("scroll", function(){
-
 const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", function(){
 
 if(window.scrollY > 80){
 navbar.classList.add("scrolled");
@@ -12,7 +12,7 @@ navbar.classList.add("scrolled");
 navbar.classList.remove("scrolled");
 }
 
-});
+}, { passive: true });
 
 const track = document.getElementById("track");
 const next = document.querySelector(".next");
@@ -100,7 +100,7 @@ updateCarousel(true);
 
 window.addEventListener("resize", ()=>{
   updateCarousel(true);
-});
+}, { passive: true });
 
 
 /* SCROLL SUAVE UNIFORME */

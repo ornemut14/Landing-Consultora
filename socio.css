@@ -52,6 +52,16 @@ html {
     border: 0;
 }
 
+/* Iconos SVG inline (mismos trazos que Font Awesome, sin fuente externa) */
+.icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: -0.125em;
+    fill: currentColor;
+    overflow: visible;
+}
+
 a:focus-visible,
 button:focus-visible {
     outline: 2px solid #a8892d;
@@ -74,6 +84,13 @@ body {
         radial-gradient(ellipse at 50% 18%, rgba(34, 79, 128, 0.20), transparent 58%),
         linear-gradient(180deg, rgba(5, 15, 30, 0.78) 0%, rgba(7, 21, 40, 0.60) 42%, rgba(5, 16, 32, 0.84) 100%),
         url("assets/fondo-socio.webp");
+    background-image:
+        radial-gradient(ellipse at 50% 18%, rgba(34, 79, 128, 0.20), transparent 58%),
+        linear-gradient(180deg, rgba(5, 15, 30, 0.78) 0%, rgba(7, 21, 40, 0.60) 42%, rgba(5, 16, 32, 0.84) 100%),
+        image-set(
+            url("assets/fondo-socio.avif") type("image/avif"),
+            url("assets/fondo-socio.webp") type("image/webp")
+        );
     background-size: auto, auto, cover;
     background-position: center center, center center, center 42%;
     background-repeat: no-repeat;
@@ -580,7 +597,7 @@ body.modal-open {
     box-shadow: 0 12px 26px rgba(16, 35, 63, 0.24);
 }
 
-.contact-btn i {
+.contact-btn .icon {
     font-size: 18px;
 }
 
